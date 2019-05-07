@@ -6,21 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="348dp"
-        android:layout_height="54dp"
+        android:layout_width="417dp"
+        android:layout_height="57dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="134dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="395dp"
-        android:layout_height="645dp"
+    <RelativeLayout
+        android:layout_width="398dp"
+        android:layout_height="646dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -28,27 +29,30 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView">
-
-
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.0">
         <TextView
             android:id="@+id/textView"
+            android:layout_width="336dp"
+            android:layout_height="23dp"
+            android:text="Museum"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="77dp" />
+        <ScrollView
+            android:layout_width="355dp"
+            android:layout_height="76dp"
+            android:scrollbars="none"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="128dp">
+            <LinearLayout
+            android:id="@+id/museums"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Museum" />
+            android:orientation="horizontal" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="105dp"
-            android:scrollbars="none">
+         </ScrollView>
+    </RelativeLayout>
 
-            <LinearLayout
-                android:id="@+id/museums"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
-
-        </ScrollView>
-    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
