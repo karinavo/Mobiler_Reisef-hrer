@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.navigation_home:
                 fragment = new HomeFragment();
                 break;
+            case R.id.navigation_tours:
+                fragment = new TourFragment();
+                break;
         }
 
         return replaceFragment(fragment);    }
