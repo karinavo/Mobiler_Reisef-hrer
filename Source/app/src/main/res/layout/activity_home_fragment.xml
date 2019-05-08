@@ -34,82 +34,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
         app:layout_constraintVertical_bias="0.0">
+        <ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/bigscrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+           <LinearLayout  android:layout_width="match_parent"
+               android:id="@+id/llayout"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="336dp"
-            android:layout_height="23dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="29dp"
-            android:layout_marginEnd="57dp"
-            android:layout_marginBottom="195dp"
-            android:text="Museum"
-            tools:layout_editor_absoluteX="5dp"
-            tools:layout_editor_absoluteY="77dp" />
-
-        <HorizontalScrollView
-            android:id="@+id/scrollviewformuseum"
-            android:layout_width="wrap_content"
-            android:layout_height="135dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginBottom="455dp"
-            android:scrollbars="none"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="128dp">
-
-            <LinearLayout
-                android:id="@+id/museums"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" />
-
-        </HorizontalScrollView>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="336dp"
-            android:layout_height="23dp"
-            android:layout_below="@+id/scrollviewformuseum"
-            android:layout_alignTop="@+id/textView1"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="172dp"
-            android:layout_marginEnd="58dp"
-            android:layout_marginBottom="168dp"
-            android:text="Palace"
-            tools:layout_editor_absoluteX="5dp"
-            tools:layout_editor_absoluteY="77dp" />
-
-        <HorizontalScrollView
-            android:id="@+id/scrollViewpalace"
-            android:layout_width="wrap_content"
-            android:layout_height="135dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="279dp"
-            android:scrollbars="none"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="128dp">
-
-            <LinearLayout
-                android:id="@+id/palace"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" />
-
-        </HorizontalScrollView>
-
+           </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
