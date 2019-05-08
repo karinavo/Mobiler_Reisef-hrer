@@ -1,36 +1,70 @@
 package univie.travelguide;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class LoginFragment extends AppCompatActivity {
+public class LoginFragment extends Fragment {
 
-    private EditText EtLogin;
+    private EditText EtLoginEmail;
     private EditText Password;
     private Button BtnLogin;
+    private Button BtnRegister;
 
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_fragment);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_login_fragment, null);
 
-        EtLogin = (EditText)findViewById(R.id.et_login);
-        Password = (EditText)findViewById(R.id.et_password);
-        BtnLogin = (Button)findViewById(R.id.btn_login);
-    }
+        EtLoginEmail = view.findViewById(R.id.et_login_email);
+        Password = view.findViewById(R.id.et_password);
+        BtnLogin = view.findViewById(R.id.btn_login);
+        BtnRegister = view.findViewById(R.id.btn_register);
 
-
-
-    private void validate(String login, String password) {
-        if(Variables.login_password.containsKey(login)) {
-            if(Variables.login_password.get(login).matches(password)) {
-                Intent intent = new Intent(LoginFragment.this, MyAccountFragment.class);
-                startActivity(intent);
+        BtnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validate(EtLoginEmail.getText().toString(), Password.getText().toString())) {
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment_container, new MyAccountFragment());
+                    fragmentTransaction.commit();
+                    System.out.println("Login success!");
+                }
+                else {
+                    Context context = getContext();
+                    Toast toast = Toast.makeText(context, "Wrong login/password!", Toast.LENGTH_LONG);
+                    toast.show();
+                }
             }
-        }
+        });
+
+        BtnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new RegisterFragment());
+                fragmentTransaction.commit();
+            }
+        });
+
+        return view;
     }
+
+
+    private boolean validate(String login, String password) {
+        if(Variables.database.containsKey(login)) {
+            return Variables.database.get(login).get(0).equals(password);
+        }
+        return false;
+    }
+
 }

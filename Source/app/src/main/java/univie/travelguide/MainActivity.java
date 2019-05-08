@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.navigation_favourites:
                 fragment = new FavouritesFragment();
                 break;
+            case R.id.navigation_profile:
+                fragment = new LoginFragment();
+                break;
         }
 
         return replaceFragment(fragment);    }
