@@ -8,8 +8,9 @@
     <string name="hint_password">Password</string>
     <string name="hint_email">E-mail</string>
     <string name="btn_login">Login</string>
-    <string name="register">Register</string>
     <string name="hint_name">Name</string>
     <string name="hint_surname">Surname</string>
-
+    <string name="tours">My Tours</string>
+    <string name="sightseeing">My Sightseeings</string>
+    <string name="register">Register</string>
 </resources>

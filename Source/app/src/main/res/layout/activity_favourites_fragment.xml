@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="fill_parent"
+        android:layout_height="662dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="0dp" />
+
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/checkbox_background"
+            android:button="@null"
+            android:checked="true"
+            android:text="@string/tours"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+
+
+            />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/checkbox_background"
+            android:button="@null"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:layout_weight="1"
+            android:text="@string/sightseeing" />
+    </RadioGroup>
+
+</RelativeLayout>

@@ -3,11 +3,14 @@ package univie.travelguide;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
@@ -18,7 +21,13 @@ public class FavouritesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.listtemplate, null);
+        View view = inflater.inflate(R.layout.activity_favourites_fragment, null);
+
+
+        RadioGroup radioGroup = view .findViewById(R.id.radio_group);
+
+
+
 
         String[] restourantTitle = new String[]{
                 "Albertina",
@@ -28,13 +37,15 @@ public class FavouritesFragment extends Fragment {
 
 
         String[] restourantDescription = new String[]{
-                "Albertina",
-                "Belvedere",
-                "Hundertwasser"
+                "Albertina ауцзщауща лцуащлцущащлзцуащл щлцуащлуукцпукцпшщукпцшщцукпшщупщкц шщоупкц опшщукц шощпукцшощпку цошщупкцшощпку цшощупкц ошщ пукцшощ пукцошщупкошщц ",
+                "Belvedereцуйайуацулйца лщайцущ йцущлаз",
+                "Hundertwasserй цуацайуйуц уйца айуц"
         };
         int[] restourantImage = new int[]{
                 R.drawable.albertina
         };
+
+
 
 
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
@@ -60,5 +71,7 @@ public class FavouritesFragment extends Fragment {
 
         return view;
     }
+
+
 }
 
