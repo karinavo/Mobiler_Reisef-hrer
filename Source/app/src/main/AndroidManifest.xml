@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterFragment"></activity>
+        <activity android:name=".SightseeingProfile"></activity>
+        <activity android:name=".RegisterFragment" />
         <activity android:name=".MyAccountFragment" />
         <activity android:name=".LoginFragment" />
         <activity android:name=".HomeFragment" />
