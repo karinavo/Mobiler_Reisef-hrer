@@ -31,45 +31,7 @@ public class HomeFragment extends Fragment   {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_home_fragment,null);
-        bigScrollview = view.findViewById(R.id.bigscrollview);
-        linearLayout = view.findViewById(R.id.llayout);
-        LayoutInflater inflater1 = LayoutInflater.from(getActivity().getApplicationContext());
-        View view1 =inflater1.inflate(R.layout.cat_museums,category_museums,false);
-        ListView listView = new ListView(getActivity().getApplicationContext());
-        //to display each result within view:
-        final ArrayAdapter<ImageView> adapter = new ArrayAdapter<I>(view.getContext(), android.R.layout.simple_list_item_1,images_museums);
 
-        listView.setAdapter(adapter);
-        //BILDER
-        ImageView albertina = view1.findViewById(R.id.albertina);
-        ImageView belvedere = view1.findViewById(R.id.belvedere);
-        ImageView leopold = view1.findViewById(R.id.leopold);
-        ImageView hunderwasser = view1.findViewById(R.id.hundertwasser);
-        ImageView karlsplatz = view1.findViewById(R.id.albertina);
-        ImageView mumok = view1.findViewById(R.id.belvedere);
-        ImageView mak = view1.findViewById(R.id.leopold);
-        ImageView kunsthistm = view1.findViewById(R.id.hundertwasser);
-
-        images_museums.add(albertina);
-        images_museums.add(belvedere);
-        images_museums.add(leopold);
-        images_museums.add(hunderwasser);
-        images_museums.add(karlsplatz);
-        images_museums.add(mumok);
-        images_museums.add(mak);
-        images_museums.add(kunsthistm);
-
-        listView.addView(view1);
-        linearLayout.addView(listView);
-        bigScrollview.addView(linearLayout);
-        for(ImageView im : images_museums){
-            im.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
-        }
 
         return view;
     }
