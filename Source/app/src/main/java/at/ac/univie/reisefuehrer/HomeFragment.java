@@ -16,11 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-import in.goodiebag.carouselpicker.CarouselPicker;
 
 public class HomeFragment extends Fragment {
     LinearLayout category_museums;
