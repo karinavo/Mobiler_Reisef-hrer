@@ -25,7 +25,7 @@ public class MyAccountFragment extends Fragment {
         tvBirtdate = view.findViewById(R.id.my_acc_birthday);
         System.out.println("Email: " + Variables.currentProfile);
 
-        tvEmail.setText("tetr21@gmail.com");
+        tvEmail.setText(Variables.currentProfile);
 
         //Build string name and setText for textview NameSurname
 
