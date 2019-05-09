@@ -18,7 +18,8 @@ public class SightseeingProfile extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_sightseeing_profile,null);
-
+        ImageView fav = view.findViewById(R.id.imageFAV);
+        ImageView map = view.findViewById(R.id.imageView);
         final TextView tv = view.findViewById(R.id.text_view);
         final ImageView image_sightseeing = view.findViewById(R.id.imageView1);
         RadioGroup radioGroup = view .findViewById(R.id.radio_group);
@@ -39,6 +40,12 @@ public class SightseeingProfile extends Fragment {
                     case R.id.radio3:
                         System.out.println("REVIEWS");
                 }
+            }
+        });
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
         return view;
