@@ -11,7 +11,6 @@ import java.util.TreeSet;
 public class Variables {
 
 
-
     public static Map<String, String> sighseeingWithCategory = new TreeMap<String,String>() {
         {
             put("Albertina", "Museum");
