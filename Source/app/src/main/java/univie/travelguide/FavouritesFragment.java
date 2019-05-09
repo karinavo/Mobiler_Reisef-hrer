@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
@@ -21,47 +22,27 @@ public class FavouritesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_favourites_fragment, null);
+        View view = inflater.inflate(R.layout.activity_favourites_fragment,  null);
 
 
         RadioGroup radioGroup = view .findViewById(R.id.radio_group);
 
-
-
-
-        String[] restourantTitle = new String[]{
-                "Albertina",
-                "Belvedere",
-                "Hundertwasser"
-        };
-
-
-        String[] restourantDescription = new String[]{
-                "Albertina ауцзщауща лцуащлцущащлзцуащл щлцуащлуукцпукцпшщукпцшщцукпшщупщкц шщоупкц опшщукц шощпукцшощпку цошщупкцшощпку цшощупкц ошщ пукцшощ пукцошщупкошщц ",
-                "Belvedereцуйайуацулйца лщайцущ йцущлаз",
-                "Hundertwasserй цуацайуйуц уйца айуц"
-        };
-        int[] restourantImage = new int[]{
-                R.drawable.albertina
-        };
-
-
-
-
-        List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
-        for (int i = 0; i < 3; i++) {
-            HashMap<String, String> hm = new HashMap<String, String>();
-            hm.put("listview_title", restourantTitle[i]);
-            hm.put("listview_discription", restourantDescription[i]);
-            hm.put("listview_image", Integer.toString(restourantImage[0]));
-            aList.add(hm);
-        }
-
-        String[] from = {"listview_image", "listview_title", "listview_discription"};
-        int[] to = {R.id.listview_image, R.id.listview__title, R.id.listview_description};
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.radio1:
+                        System.out.println("TOURS");
+                        break;
+                    case R.id.radio2:
+                        System.out.println("SIGHTSEEINGS");
+                        break;
+                }
+            }
+        });
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(view.getContext().getApplicationContext(),
-                aList, R.layout.listview_with_image, from, to);
+                Variables.list_of_sightseeings, R.layout.listview_favourites, Variables.from, Variables.to);
         ListView search = (ListView) view.findViewById(R.id.list_view);
 
 
@@ -72,6 +53,17 @@ public class FavouritesFragment extends Fragment {
         return view;
     }
 
+    /*
+    // get current list of keys
+    private ArrayAdapter<String> getAdapter() {
+        List<String> keys;
+        return new ArrayAdapter<>(
+                getActivity(),
+                android.R.layout.simple_list_item_1,
+                keys
+        );
+    }
+*/
 
 }
 
