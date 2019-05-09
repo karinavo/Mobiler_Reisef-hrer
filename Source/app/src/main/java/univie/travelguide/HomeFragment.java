@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment   {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 final List<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
-                    if(Variables.title.contains(query))
+                    if(Variables.sighseeingWithCategory.keySet().contains(query))
                    /* int id = SightseeingTitle.indexOf(query);
                     listView.removeAllViews();
                     System.out.println("HERE");

@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_main);
-        Variables.fillSightseeingsList();
         Variables.fillSightseeingMap();
 
         BottomNavigationView navigation = findViewById(R.id.navigation);

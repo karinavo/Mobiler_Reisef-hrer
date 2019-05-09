@@ -4,19 +4,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Variables {
 
-    public static List<String> title = new ArrayList<String>(){{
-        add("Albertina");
-        add("Belvedere");
-        add("Hundertwasser");
-        add("Karlsplatz Museum");
-        add("Art History Museum");
-        add("MAK");
-        add("Mumok");
-        add("Leopold");
-    }
+
+
+    public static Map<String, String> sighseeingWithCategory = new TreeMap<String,String>() {
+        {
+            put("Albertina", "Museum");
+            put("Belvedere", "Museum");
+            put("Hundertwasser", "Museum");
+            put("Karlsplatz Museum", "Museum");
+            put("Art History Museum", "Museum");
+            put("MAK", "Museum");
+            put("Mumok", "Museum");
+            put("Leopold", "Museum");
+        }
     };
 
     public static List<String> list = new ArrayList<String>();
@@ -48,20 +52,15 @@ public class Variables {
     static public Map<String, ArrayList<String>> database = new HashMap<>();
     static public Map<String, String> login_password = new HashMap<>();
     static public String flag_sightseeing = "";
-    static public List<Sightseeing> sightseeingList = new ArrayList<>();
     static public List<Map<String,String>> list_of_sightseeings = new ArrayList<>();
 
-    public static void fillSightseeingsList() {
-        for(int i = 0; i < title.size(); i++) {
-            sightseeingList.add(new Sightseeing(title.get(i),sightseeingDescription[i], sightseeingImage[i]));
-        }
-    }
 
     public static void fillSightseeingMap() {
-        for(int i = 0; i < title.size(); i++) {
+        List<String> title = new ArrayList<>(sighseeingWithCategory.keySet());
+        for(int i = 0; i < sighseeingWithCategory.size(); i++) {
             Map<String, String> map_of_sightseeings = new HashMap<>();
             map_of_sightseeings.put("listview_title", title.get(i));
-            map_of_sightseeings.put("listview_discription", sightseeingDescription[i]);
+            map_of_sightseeings.put("listview_discription", sighseeingWithCategory.get(title.get(i)));
             map_of_sightseeings.put("listview_image", Integer.toString(sightseeingImage[i]));
             list_of_sightseeings.add(map_of_sightseeings);
 
