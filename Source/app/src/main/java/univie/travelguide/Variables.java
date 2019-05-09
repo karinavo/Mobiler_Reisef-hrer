@@ -16,12 +16,24 @@ public class Variables {
         {
             put("Albertina", "Museum");
             put("Belvedere", "Museum");
-            put("Hundertwasser", "Museum");
+            put("Hundertwasser", "Building");
             put("Karlsplatz Museum", "Museum");
             put("Art History Museum", "Museum");
             put("MAK", "Museum");
             put("Mumok", "Museum");
             put("Leopold", "Museum");
+
+            put("Augarten", "Park");
+            put("Burgtheater", "Theater");
+            put("Gasometer", "Building");
+            put("Heeresgeschichtliches Museum", "Museum");
+            put("Hofburg", "Palace");
+            put("Pfarrkirche", "Chirch");
+            put("Prater Park", "Park");
+            put("Schoenbrunn", "Park");
+            put("Setaya Park", "Park");
+            put("Zentral Friedhof", "Park");
+
         }
     };
 
@@ -31,10 +43,21 @@ public class Variables {
             put("Belvedere", R.drawable.belvedere);
             put("Hundertwasser", R.drawable.hundertwasser);
             put("Karlsplatz Museum", R.drawable.karlsplatz);
-            put("Art History Museum", R.drawable.kunsthistorishes);
+            put("Art History Museum", R.drawable.kunsthistorisches);
             put("MAK", R.drawable.mak);
             put("Mumok", R.drawable.mumok);
             put("Leopold", R.drawable.leopold);
+
+            put("Augarten", R.drawable.augarten_park);
+            put("Burgtheater", R.drawable.burgtheater);
+            put("Gasometer", R.drawable.gasometer);
+            put("Heeresgeschichtliches Museum", R.drawable.heeresgeschichtliches);
+            put("Hofburg", R.drawable.hofburg);
+            put("Pfarrkirche", R.drawable.pfarrkirche);
+            put("Prater Park", R.drawable.prater);
+            put("Schoenbrunn", R.drawable.schoenbrunn_park);
+            put("Setaya Park", R.drawable.setaya_park);
+            put("Zentral Friedhof", R.drawable.zentralfriedhof);
         }
     };
 
@@ -51,6 +74,19 @@ public class Variables {
         put("MAK","The MAK – Austrian Museum of Applied Arts / Contemporary Art is an arts and crafts museum located at Stubenring 5 in Vienna’s 1st district Innere Stadt. Besides its traditional orientation towards arts and crafts and design, the museum especially focuses on architecture and contemporary art.");
         put("Mumok","The museum has a collection of 10,000 modern and contemporary art works, including major works from Andy Warhol, Pablo Picasso, Joseph Beuys, Nam June Paik, Wolf Vostell, Gerhard Richter, Jasper Johns and Roy Lichtenstein. Over 230 art works were given to the museum by the German industrialist and art collector Peter Ludwig and his wife Irene in 1981. ");
         put("Leopold","The Leopold Museum, housed in the Museumsquartier in Vienna, Austria, is home to one of the largest collections of modern Austrian art, featuring artists such as Egon Schiele, Gustav Klimt, Oskar Kokoschka and Richard Gerstl.It contains the world's largest Egon Schiele Collection. ");
+
+        put("Augarten", "Park");
+        put("Burgtheater", "Theater");
+        put("Gasometer", "Building");
+        put("Heeresgeschichtliches Museum", "Museum");
+        put("Hofburg", "Palace");
+        put("Pfarrkirche", "Chirch");
+        put("Prater Park", "Park");
+        put("Schoenbrunn", "Park");
+        put("Setaya Park", "Park");
+        put("Zentral Friedhof", "Park");
+
+
     }};
 
 

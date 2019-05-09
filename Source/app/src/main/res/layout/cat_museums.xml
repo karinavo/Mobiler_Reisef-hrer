@@ -46,7 +46,7 @@
         android:id="@+id/khm"
         android:layout_width="83dp"
         android:layout_height="158dp"
-        android:src="@drawable/kunsthistorishes"
+        android:src="@drawable/kunsthistorisches"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp" />
     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -63,4 +63,5 @@
         android:src="@drawable/mumok"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp" />
+
 </LinearLayout>
