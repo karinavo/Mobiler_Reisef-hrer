@@ -83,38 +83,23 @@
         app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageFAV"
-        android:layout_width="58dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+    <CheckBox
+        android:id="@+id/likeIcon"
+        android:layout_width="141dp"
+        android:layout_height="97dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="214dp"
+        android:layout_marginBottom="165dp"
+        android:background="@drawable/like_icon"
+        android:button="@null"
+        android:checked="false"
         android:clickable="true"
-        android:src="@drawable/ic_favorite_border_black_24dp"
+        android:focusable="true"
+        android:stateListAnimator="@animator/scale"
         app:layout_constraintBottom_toTopOf="@+id/text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1"
-        app:layout_constraintVertical_bias="0.168" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="64dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="196dp"
-        android:clickable="true"
-        android:src="@drawable/ic_location_on_black_24dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.737"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1"
-        app:layout_constraintVertical_bias="0.928" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
 </android.support.constraint.ConstraintLayout>

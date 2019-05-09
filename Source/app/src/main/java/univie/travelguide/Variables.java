@@ -91,6 +91,7 @@ public class Variables {
     static public String flag_sightseeing = "";
     static public List<Map<String,String>> list_of_sightseeings = new ArrayList<>();
     static public Integer itemPosition = 0;
+    static public Set<Integer> favouriteSightseeings = new HashSet<>();
 
 
     static public List<String>  getSightseeingList() {

@@ -8,9 +8,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SightseeingProfile extends Fragment {
 
@@ -18,8 +21,7 @@ public class SightseeingProfile extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_sightseeing_profile,null);
-        ImageView fav = view.findViewById(R.id.imageFAV);
-        ImageView map = view.findViewById(R.id.imageView);
+
         final TextView tv = view.findViewById(R.id.text_view);
         final ImageView image_sightseeing = view.findViewById(R.id.imageView1);
         RadioGroup radioGroup = view .findViewById(R.id.radio_group);
@@ -42,12 +44,29 @@ public class SightseeingProfile extends Fragment {
                 }
             }
         });
-        fav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
+        final CheckBox checkBox = view.findViewById(R.id.likeIcon);
+
+        if(Variables.favouriteSightseeings.contains(Variables.itemPosition)){
+            checkBox.setChecked(true);
+        }
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    Variables.favouriteSightseeings.add(Variables.itemPosition);
+                }
+                if(!isChecked){
+                    Variables.favouriteSightseeings.remove(Variables.itemPosition);
+                    System.out.println(Variables.favouriteSightseeings);
+                }
             }
         });
+
+
+
+
         return view;
     }
 }

@@ -16,13 +16,27 @@ import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class FavouritesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_favourites_fragment,  null);
+
+        Set<Map<String,String>> list_of_sightseeings = new HashSet<>();
+        for(Integer i: Variables.favouriteSightseeings){
+            final String tempSight = Variables.getSightseeingList().get(i);
+            Map<String, String> temp = new TreeMap<>();
+            temp.put("listview_image", Integer.toString(Variables.sightseeingWithFoto.get(tempSight)));
+            temp.put("listview_title", tempSight);
+            list_of_sightseeings.add(temp);
+        }
+        List<Map<String,String>> list_of_sightseeings2 = new ArrayList<>(list_of_sightseeings);
 
 
         RadioGroup radioGroup = view .findViewById(R.id.radio_group);
@@ -41,8 +55,9 @@ public class FavouritesFragment extends Fragment {
             }
         });
 
+
         SimpleAdapter simpleAdapter = new SimpleAdapter(view.getContext().getApplicationContext(),
-                Variables.list_of_sightseeings, R.layout.listview_favourites, Variables.from, Variables.to);
+                list_of_sightseeings2, R.layout.listview_favourites, Variables.from, Variables.to);
         ListView search = (ListView) view.findViewById(R.id.list_view);
 
 
