@@ -72,24 +72,24 @@
 
     <TextView
         android:id="@+id/text_view"
-        android:layout_width="426dp"
-        android:layout_height="176dp"
+        android:layout_width="400dp"
+        android:layout_height="185dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/textview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/likeIcon"
         android:layout_width="43dp"
         android:layout_height="42dp"
-        android:layout_marginLeft="56dp"
+        android:layout_marginLeft="dp"
         android:layout_marginTop="35dp"
-        android:layout_marginEnd="352dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/like_icon"
         android:button="@null"
@@ -98,9 +98,25 @@
         android:focusable="true"
         android:stateListAnimator="@animator/scale"
         app:layout_constraintBottom_toTopOf="@+id/text_view"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <ImageView
+        android:id="@+id/imMap"
+        android:layout_width="52dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_location_on_black_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.487" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -130,5 +146,18 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.48153216" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="69dp" />
 
 </android.support.constraint.ConstraintLayout>
