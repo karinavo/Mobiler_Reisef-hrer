@@ -13,4 +13,8 @@
     <string name="tours">My Tours</string>
     <string name="sightseeing">My Sightseeings</string>
     <string name="register">Register</string>
+    <string name="info">Information</string>
+    <string name="textview">TextView</string>
+    <string name="reviews">Reviews</string>
+    <string name="opening_hours">Opening hours</string>
 </resources>

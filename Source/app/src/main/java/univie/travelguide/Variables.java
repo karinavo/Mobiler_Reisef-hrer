@@ -47,7 +47,36 @@ public class Variables {
             R.drawable.mumok,
             R.drawable.leopold
     };
-
+    final static String[] opening_hours = new String[]{
+            "Adresse: Albertinaplatz 1, 1010 Wien"+'\n'+
+                    "Öffnungszeiten: Montag	10:00–18:00 Dienstag	10:00–18:00 Mittwoch	10:00–21:00 Donnerstag	10:00–18:00 Freitag	10:00–21:00 Samstag	10:00–18:00 Sonntag	10:00–18:00",
+            "Adresse: Prinz-Eugen-Straße 27, 1030 Wien\n" +
+                    "Öffnungszeiten:\n" +
+                    "Donnerstag\t09:00–18:00\n" +
+                    "Freitag\t09:00–21:00\n" +
+                    "Samstag\t09:00–18:00\n" +
+                    "Sonntag\t09:00–18:00\n" +
+                    "Montag\t09:00–18:00\n" +
+                    "Dienstag\t09:00–18:00\n" +
+                    "Mittwoch\t09:00–18:00",
+            "Daily 10:00-18:00",
+            "Tuesday to Sunday and public holidays,\n" +
+                    "10 a.m. to 6 p.m.\n" +
+                    "Closed until further notice! ",
+            "Tue – Sun, 10 a.m. – 6 p.m.\n" +
+                    "Thu, 10 a.m. – 9 p.m.\n" +
+                    "\n" +
+                    "June - August and 15.10.2019 - 19.1.2020 open daily",
+            "Tue 10 a.m.–10 p.m.\n" +
+                    "Wed–Sun 10 a.m.–6 p.m.\n" +
+                    "Mon closed",
+            "Monday: 14:00–19:00\n" +
+                    "Tuesday to Sunday: 10:00–19:00\n" +
+                    "Thursday: 10:00–21:00",
+            "Daily except Tuesday: 10 am to 6 pm\n" +
+                    "Thursdays: 10 am to 9 pm\n" +
+                    "June, July, August: Open daily!"
+    };
 
     static public Map<String, ArrayList<String>> database = new HashMap<>();
     static public Map<String, String> login_password = new HashMap<>();
@@ -66,6 +95,7 @@ public class Variables {
 
         }
     }
+
 
 
     public static String[] from = {"listview_image", "listview_title", "listview_discription"};
