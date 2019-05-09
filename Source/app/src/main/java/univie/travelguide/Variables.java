@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Variables {
 
@@ -23,6 +25,19 @@ public class Variables {
         }
     };
 
+    public static Map<String, Integer> sightseeingWithFoto = new TreeMap<String,Integer>() {
+        {
+            put("Albertina", R.drawable.albertina );
+            put("Belvedere", R.drawable.belvedere);
+            put("Hundertwasser", R.drawable.hundertwasser);
+            put("Karlsplatz Museum", R.drawable.karlsplatz);
+            put("Art History Museum", R.drawable.kunsthistorishes);
+            put("MAK", R.drawable.mak);
+            put("Mumok", R.drawable.mumok);
+            put("Leopold", R.drawable.leopold);
+        }
+    };
+
     public static List<String> list = new ArrayList<String>();
 
 
@@ -37,16 +52,9 @@ public class Variables {
             "The museum has a collection of 10,000 modern and contemporary art works, including major works from Andy Warhol, Pablo Picasso, Joseph Beuys, Nam June Paik, Wolf Vostell, Gerhard Richter, Jasper Johns and Roy Lichtenstein. Over 230 art works were given to the museum by the German industrialist and art collector Peter Ludwig and his wife Irene in 1981. ",
             "The Leopold Museum, housed in the Museumsquartier in Vienna, Austria, is home to one of the largest collections of modern Austrian art, featuring artists such as Egon Schiele, Gustav Klimt, Oskar Kokoschka and Richard Gerstl.It contains the world's largest Egon Schiele Collection. "
     };
-    final static int[] sightseeingImage = new int[]{
-            R.drawable.albertina,
-            R.drawable.belvedere,
-            R.drawable.hundertwasser,
-            R.drawable.karlsplatz,
-            R.drawable.kunsthistorishes,
-            R.drawable.mak,
-            R.drawable.mumok,
-            R.drawable.leopold
-    };
+
+
+
     final static String[] opening_hours = new String[]{
             "Adresse: Albertinaplatz 1, 1010 Wien"+'\n'+
                     "Öffnungszeiten: Montag	10:00–18:00 Dienstag	10:00–18:00 Mittwoch	10:00–21:00 Donnerstag	10:00–18:00 Freitag	10:00–21:00 Samstag	10:00–18:00 Sonntag	10:00–18:00",
@@ -82,7 +90,13 @@ public class Variables {
     static public Map<String, String> login_password = new HashMap<>();
     static public String flag_sightseeing = "";
     static public List<Map<String,String>> list_of_sightseeings = new ArrayList<>();
+    static public Integer itemPosition = 0;
 
+
+    static public List<String>  getSightseeingList() {
+        List<String> title = new ArrayList<>(sighseeingWithCategory.keySet());
+        return title;
+    }
 
     public static void fillSightseeingMap() {
         List<String> title = new ArrayList<>(sighseeingWithCategory.keySet());
@@ -90,7 +104,7 @@ public class Variables {
             Map<String, String> map_of_sightseeings = new HashMap<>();
             map_of_sightseeings.put("listview_title", title.get(i));
             map_of_sightseeings.put("listview_discription", sighseeingWithCategory.get(title.get(i)));
-            map_of_sightseeings.put("listview_image", Integer.toString(sightseeingImage[i]));
+            map_of_sightseeings.put("listview_image", Integer.toString(sightseeingWithFoto.get(title.get(i))));
             list_of_sightseeings.add(map_of_sightseeings);
 
         }

@@ -85,8 +85,7 @@ public class HomeFragment extends Fragment   {
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile());
               //  InfoSightseeing.flag_sightseeing =  parent.getItemAtPosition(position).toString();
-               // System.out.println(InfoSightseeing.flag_sightseeing);
-                System.out.println("IMGERE");
+                Variables.itemPosition = position;
                 fragmentTransaction.commit();
             }
         });

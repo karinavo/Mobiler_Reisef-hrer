@@ -18,9 +18,10 @@ public class SightseeingProfile extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_sightseeing_profile,null);
+
         TextView tv = view.findViewById(R.id.text_view);
         ImageView image_sightseeing = view.findViewById(R.id.imageView1);
-        image_sightseeing.setImageResource(R.drawable.albertina);
+        image_sightseeing.setImageResource(Variables.sightseeingWithFoto.get(Variables.getSightseeingList().get(Variables.itemPosition)));
         RadioGroup radioGroup = view .findViewById(R.id.radio_group);
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -28,7 +29,6 @@ public class SightseeingProfile extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.radio1:
-
                         System.out.println("INFO");
                         break;
                     case R.id.radio2:
