@@ -124,4 +124,5 @@ public class Variables {
 
 
 
+    static public String currentProfile;
 }

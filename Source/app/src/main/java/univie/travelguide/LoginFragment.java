@@ -34,10 +34,11 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (validate(EtLoginEmail.getText().toString(), Password.getText().toString())) {
+                    Variables.currentProfile = EtLoginEmail.getText().toString();                   //set current profile for next MyAccount Activity
+
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, new MyAccountFragment());
                     fragmentTransaction.commit();
-                    System.out.println("Login success!");
                 }
                 else {
                     Context context = getContext();
