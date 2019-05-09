@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SightseeingProfile"
-    android:layout_marginEnd="0dp" >
+    android:layout_marginEnd="0dp"
+    tools:context=".SightseeingProfile">
 
 
     <RadioGroup
@@ -57,40 +57,40 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="380dp"
-        android:layout_height="172dp"
+        android:layout_width="413dp"
+        android:layout_height="250dp"
         android:layout_marginStart="26dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_view"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintHorizontal_bias="0.357"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radio_group"
-        app:layout_constraintVertical_bias="0.147" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/text_view"
-        android:layout_width="363dp"
-        android:layout_height="125dp"
+        android:layout_width="426dp"
+        android:layout_height="176dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/textview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.863"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/likeIcon"
-        android:layout_width="141dp"
-        android:layout_height="97dp"
+        android:layout_width="43dp"
+        android:layout_height="42dp"
         android:layout_marginLeft="56dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="214dp"
-        android:layout_marginBottom="165dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="352dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/like_icon"
         android:button="@null"
         android:checked="false"
@@ -100,6 +100,35 @@
         app:layout_constraintBottom_toTopOf="@+id/text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="414dp"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="317dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.48153216" />
 
 </android.support.constraint.ConstraintLayout>
