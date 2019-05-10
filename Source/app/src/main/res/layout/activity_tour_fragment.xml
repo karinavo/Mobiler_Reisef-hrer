@@ -7,7 +7,7 @@
     tools:context=".HomeFragment">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_create_personal_tour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -39,6 +39,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button_create_personal_tour" />
 
 </android.support.constraint.ConstraintLayout>

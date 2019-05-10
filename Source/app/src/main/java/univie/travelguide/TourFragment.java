@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -22,6 +24,7 @@ import javax.xml.validation.Validator;
 public class TourFragment extends Fragment {
 
     private ListView listView;
+    private Button createPersonalTour;
 
 
     @Nullable
@@ -29,20 +32,43 @@ public class TourFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_tour_fragment, null);
 
-        ArrayList<Integer> photos = new ArrayList<>(Variables.sightseeingWithFoto.values());
+        createPersonalTour = view.findViewById(R.id.button_create_personal_tour);
 
-        ArrayList<String> titles = new ArrayList<>(Variables.sightseeingWithFoto.keySet());
+        ArrayList<String> tour_titles = new ArrayList<>();
 
-        ArrayList<String> descriptions = new ArrayList<>(Variables.sightseeingDescription.values());
+        tour_titles.add("Theaters Tour");
+        tour_titles.add("Museums Tour");
+        tour_titles.add("Parks Tour");
+
+        ArrayList<String> tour_description = new ArrayList<>();
+
+        tour_description.add("Experience Vienna's Theaters");
+        tour_description.add("Experience Vienna's Museums");
+        tour_description.add("Experience Vienna's Parks");
+
+        ArrayList<Integer> tour_photos = new ArrayList<>();
+
+        tour_photos.add(R.drawable.opera_tour_photo);
+        tour_photos.add(R.drawable.museums_tour_photo);
+        tour_photos.add(R.drawable.parks_tour_photo);
 
 
-        CustomAdapterClass adapter = new CustomAdapterClass(getActivity(), titles, descriptions, photos);
+        CustomAdapterClass adapter = new CustomAdapterClass(getActivity(), tour_titles, tour_description, tour_photos);
 
         listView = view.findViewById(R.id.list_view_tours);
 
         listView.setAdapter(adapter);
 
 
+
+        createPersonalTour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new CreateTourFragment()).addToBackStack("tag");
+                fragmentTransaction.commit();
+            }
+        });
 
         return view;
     }
