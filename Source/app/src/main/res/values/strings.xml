@@ -17,4 +17,18 @@
     <string name="textview">TextView</string>
     <string name="reviews">Reviews</string>
     <string name="opening_hours">Opening hours</string>
+    <string name="rb_hours_1">1</string>
+    <string name="rb_hours_2">2</string>
+    <string name="rb_hours_3">3</string>
+    <string name="rb_hours_4">4</string>
+    <string name="rb_hours_5">5</string>
+    <string name="rb_hours_6">6</string>
+    <string name="trip_duration">Trip duration (days)</string>
+    <string name="estimated_budget">Estimated budget</string>
+    <string name="pick_location_of_sightseeings">Pick location of sightseeings</string>
+    <string name="only_near_me">Only near me</string>
+    <string name="everywhere">Everywhere</string>
+    <string name="pick_categories">Pick categories</string>
+    <string name="museums">Museums</string>
+    <string name="churches">Churches</string>
 </resources>
