@@ -4,9 +4,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -60,6 +62,22 @@ public class SightseeingGeneratedList extends Fragment {
         System.out.println("List 1 size: " + titles_new.size());
         System.out.println("List 2 size: " + descriptions_new.size());
         System.out.println("List 3 size: " + photos_new.size());
+
+
+        listViewSights.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile());
+                fragmentTransaction.addToBackStack("tag");
+                Variables.flag_sightseeing = "";
+                //  InfoSightseeing.flag_sightseeing =  parent.getItemAtPosition(position).toString();
+                Variables.itemPosition = position;
+                fragmentTransaction.commit();
+            }
+        });
+
 
         return view;
     }
