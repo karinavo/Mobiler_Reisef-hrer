@@ -22,11 +22,13 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class HomeFragment extends Fragment   {
     SearchView searchView;
@@ -34,16 +36,19 @@ public class HomeFragment extends Fragment   {
     ScrollView bigScrollview;
     RelativeLayout relativeLayout;
     List<ImageView> images_museums = new ArrayList<>();
+    Spinner cat;
+    public static  SimpleAdapter simpleAdapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_home_fragment,null);
         searchView = view.findViewById(R.id.searchView);
+        cat = view.findViewById(R.id.category);
 
 
 
-        final SimpleAdapter simpleAdapter = new SimpleAdapter(view.getContext().getApplicationContext(),
+        simpleAdapter = new SimpleAdapter(view.getContext().getApplicationContext(),
                 Variables.list_of_sightseeings, R.layout.listview_with_image, Variables.from, Variables.to);
         final ListView listView = (ListView) view.findViewById(R.id.list_view);
 
@@ -54,18 +59,9 @@ public class HomeFragment extends Fragment   {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 final List<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
-                    if(Variables.sighseeingWithCategory.keySet().contains(query))
-                   /* int id = SightseeingTitle.indexOf(query);
-                    listView.removeAllViews();
-                    System.out.println("HERE");
-                    HashMap<String, String> hmr = new HashMap<String, String>();
-                    hmr.put("listview_title", SightseeingTitle.get(id));
-                    hmr.put("listview_discription", SightseeingDescription[id]);
-                    hmr.put("listview_image", Integer.toString(SightseeingImage[id]));
-                    result.add(hmr);
-                    String[] from = {"listview_image", "listview_title", "listview_discription"};
-                    int[] to = {R.id.listview_image, R.id.listview__title, R.id.listview_description};*/
-                    simpleAdapter.getFilter().filter(query);
+                    if(Variables.sighseeingWithCategory.keySet().contains(query)) {
+                        simpleAdapter.getFilter().filter(query);
+                    }
                     else{
                         Toast.makeText(getActivity(), "No Match found", Toast.LENGTH_LONG).show();
                 }
@@ -76,6 +72,47 @@ public class HomeFragment extends Fragment   {
             public boolean onQueryTextChange(String newText) {
                 //    adapter.getFilter().filter(newText);
                 return false;
+            }
+        });
+        //CATEGORY SPINNER
+        cat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(cat.getSelectedItemId()==0) {
+                    System.out.println("ALLLLLLLL");
+                    simpleAdapter = new SimpleAdapter(view.getContext().getApplicationContext(),
+                            Variables.list_of_sightseeings, R.layout.listview_with_image, Variables.from, Variables.to);
+                    listView.setAdapter(simpleAdapter);
+                }else if(cat.getSelectedItemId()==1) {
+                    simpleAdapter.getFilter().filter("Museum");
+                 //   simpleAdapter.notifyDataSetInvalidated();
+                }
+                else if(cat.getSelectedItemId()==2) {
+                    simpleAdapter.getFilter().filter("Building");
+                 //   simpleAdapter.notifyDataSetInvalidated();
+
+                }
+                else if(cat.getSelectedItemId()==3) {
+                    simpleAdapter.getFilter().filter("Park");
+                    simpleAdapter.notifyDataSetInvalidated();
+                }
+                else if(cat.getSelectedItemId()==4) {
+                    simpleAdapter.getFilter().filter("Church");
+                    simpleAdapter.notifyDataSetInvalidated();
+
+                }
+                else if(cat.getSelectedItemId()==5) {
+                    simpleAdapter.getFilter().filter("Palace");
+                    //simpleAdapter.notifyDataSetInvalidated();
+
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -31,4 +31,13 @@
     <string name="pick_categories">Pick categories</string>
     <string name="museums">Museums</string>
     <string name="churches">Churches</string>
+    <string-array name="sightseeing_array">
+        <item>All categories</item>
+        <item>Museum</item>
+        <item>Building</item>
+        <item>Park</item>
+        <item>Church</item>
+        <item>Palace</item>
+    </string-array>
+
 </resources>

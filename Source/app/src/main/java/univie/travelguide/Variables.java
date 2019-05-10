@@ -28,7 +28,7 @@ public class Variables {
             put("Gasometer", "Building");
             put("Heeresgeschichtliches Museum", "Museum");
             put("Hofburg", "Palace");
-            put("Pfarrkirche", "Chirch");
+            put("Pfarrkirche", "Church");
             put("Prater Park", "Park");
             put("Schoenbrunn", "Park");
             put("Setaya Park", "Park");
@@ -75,7 +75,7 @@ public class Variables {
         put("Mumok","The museum has a collection of 10,000 modern and contemporary art works, including major works from Andy Warhol, Pablo Picasso, Joseph Beuys, Nam June Paik, Wolf Vostell, Gerhard Richter, Jasper Johns and Roy Lichtenstein. Over 230 art works were given to the museum by the German industrialist and art collector Peter Ludwig and his wife Irene in 1981. ");
         put("Leopold","The Leopold Museum, housed in the Museumsquartier in Vienna, Austria, is home to one of the largest collections of modern Austrian art, featuring artists such as Egon Schiele, Gustav Klimt, Oskar Kokoschka and Richard Gerstl.It contains the world's largest Egon Schiele Collection. ");
 
-        put("Augarten", "Park");
+        put("Augarten", "Der Augarten ist ein 52,2 Hektar großer, größtenteils öffentlicher Park der Bundesgärten mit der ältesten barocken Gartenanlage Wiens und befindet sich in der Leopoldstadt, dem zweiten Wiener Gemeindebezirk. ");
         put("Burgtheater", "Theater");
         put("Gasometer", "Building");
         put("Heeresgeschichtliches Museum", "Museum");
@@ -120,6 +120,8 @@ public class Variables {
             put("Leopold","Daily except Tuesday: 10 am to 6 pm\n" +
                             "Thursdays: 10 am to 9 pm\n" +
                             "June, July, August: Open daily!");
+            put("Augarten","Mo-Sun:6:30-21:00");
+
         } };
 
     static public Map<String, ArrayList<String>> database = new HashMap<>();
