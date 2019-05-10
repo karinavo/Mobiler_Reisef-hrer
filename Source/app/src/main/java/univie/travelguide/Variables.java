@@ -130,6 +130,9 @@ public class Variables {
     static public List<Map<String,String>> list_of_sightseeings = new ArrayList<>();
     static public Integer itemPosition = 0;
     static public Set<Integer> favouriteSightseeings = new HashSet<>();
+    static public Integer radioButtonClicked = R.id.radio1;
+    static public String currentUser = "";
+    static public String currentUserBirthdate = "";
 
 
     static public List<String>  getSightseeingList() {

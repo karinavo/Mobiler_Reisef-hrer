@@ -29,11 +29,14 @@ public class MyAccountFragment extends Fragment {
 
         //Build string name and setText for textview NameSurname
 
-        String name_surname = Variables.database.get(Variables.currentProfile).get(1) + " " + Variables.database.get(Variables.currentProfile).get(2);
-        tvNameSurname.setText(name_surname);
-        String birthdate = "Date of Birth: " + Variables.database.get(Variables.currentProfile).get(3);
-        tvBirtdate.setText(birthdate);
+        setPersonalData(Variables.currentProfile);
+        tvNameSurname.setText(Variables.currentUser);
+        tvBirtdate.setText(Variables.currentUserBirthdate);
         return view;
     }
 
+    public void setPersonalData(String email) {
+        Variables.currentUser = Variables.database.get(email).get(1) + " " + Variables.database.get(email).get(2);
+        Variables.currentUserBirthdate = Variables.database.get(email).get(3);
+    }
 }
