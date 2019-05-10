@@ -45,23 +45,17 @@ public class ReviewFragment extends Fragment {
 
         //Array to save User Image
 
-
             // Add defaul 4 User name and mean, Add once only
                 listUserName.add("John Lennon");
                 listUserName.add("Paul McCartney");
                 listUserName.add("George Harrison");
-                listUserName.add("Ringo Starr");
-                listUserName.add("Hugo Smith");
+
 
                 // text source: http://pun.me/pages/
                 listUserMean.add("The elevator to success is out of order. You’ll have to use the stairs");
                 listUserMean.add("The more you weight the harder you are to kidnap. Stay safe, eat cake.");
                 listUserMean.add("If you’re not supposed to eat at night, why is there a light bulb in the refrigerator?");
-                listUserMean.add("Last night at dinner we had some fish, and though I tried, I did not finish. My mother told me while I chewed, brains loved fish over all other food.");
-                listUserMean.add("My wallet is like an onion. When I open it, it makes me cry.");
 
-
-            username = "unknown user";
 
 
             // List  to save Foto , name and mean from user
