@@ -77,7 +77,6 @@ public class HomeFragment extends Fragment   {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(cat.getSelectedItemId()==0) {
-                    System.out.println("ALLLLLLLL");
                     simpleAdapter = new SimpleAdapter(view.getContext().getApplicationContext(),
                             Variables.list_of_sightseeings, R.layout.listview_with_image, Variables.from, Variables.to);
                     listView.setAdapter(simpleAdapter);

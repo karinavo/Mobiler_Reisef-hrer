@@ -29,6 +29,9 @@ public class FavouritesFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_favourites_fragment,  null);
 
         Set<Map<String,String>> list_of_sightseeings = new HashSet<>();
+        Set<Map<String,String>> list_of_tours = new HashSet<>();
+
+
         for(Integer i: Variables.favouriteSightseeings){
             final String tempSight = Variables.getSightseeingList().get(i);
             Map<String, String> temp = new TreeMap<>();

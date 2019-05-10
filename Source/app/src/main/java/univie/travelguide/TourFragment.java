@@ -18,7 +18,9 @@ import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import javax.xml.validation.Validator;
@@ -28,12 +30,13 @@ public class TourFragment extends Fragment {
     private ListView listView;
     private Button createPersonalTour;
 
-
+    public List<Map<String,String>> tours_listview = new ArrayList<Map<String, String>>();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_tour_fragment, null);
+        listView = view.findViewById(R.id.list_view_tours);
 
         createPersonalTour = view.findViewById(R.id.button_create_personal_tour);
 
@@ -56,10 +59,16 @@ public class TourFragment extends Fragment {
         tour_photos.add(R.drawable.museums_tour_photo);
         tour_photos.add(R.drawable.parks_tour_photo);
 
+        for (int i = 0; i < tour_titles.size(); i++) {
+            HashMap<String, String> hm = new HashMap<String, String>();
+            hm.put("listview_title", tour_titles.get(i));
+            hm.put("listview_description", tour_description.get(i));
+            hm.put("listview_image", Integer.toString(tour_photos.get(i)));
+            tours_listview.add(hm);
+        }
 
-        CustomAdapterClass adapter = new CustomAdapterClass(getActivity(), tour_titles, tour_description, tour_photos);
 
-        listView = view.findViewById(R.id.list_view_tours);
+        SimpleAdapter adapter = new SimpleAdapter(view.getContext().getApplicationContext(),tours_listview, R.layout.listview_with_image, Variables.from, Variables.to);
 
         listView.setAdapter(adapter);
 
