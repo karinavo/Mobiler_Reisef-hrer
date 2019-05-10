@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.navigation_tours:
                 fragment = new TourFragment();
                 break;
+            case R.id.navigation_map:
+                fragment = new MapFragment();
+                break;
             case R.id.navigation_favourites:
                 fragment = new FavouritesFragment();
                 break;

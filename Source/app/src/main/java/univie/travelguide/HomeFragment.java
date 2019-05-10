@@ -32,9 +32,6 @@ import java.util.Map;
 
 public class HomeFragment extends Fragment   {
     SearchView searchView;
-    LinearLayout linearLayout;
-    ScrollView bigScrollview;
-    RelativeLayout relativeLayout;
     List<ImageView> images_museums = new ArrayList<>();
     Spinner cat;
     public static  SimpleAdapter simpleAdapter;
@@ -123,7 +120,6 @@ public class HomeFragment extends Fragment   {
                 fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile());
                 fragmentTransaction.addToBackStack("tag");
                 Variables.flag_sightseeing = "";
-              //  InfoSightseeing.flag_sightseeing =  parent.getItemAtPosition(position).toString();
                 Variables.itemPosition = position;
                 fragmentTransaction.commit();
             }

@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,8 +59,9 @@ public class SightseeingProfile extends Fragment {
                         image_sightseeing.setImageResource(Variables.sightseeingWithFoto.get(Variables.getSightseeingList().get(Variables.itemPosition)));
                         tv.setText(Variables.sightseeingopenhours.get(Variables.getHours().get(Variables.itemPosition)));
                         Drawable img = view.getContext().getResources().getDrawable(R.drawable.ic_location_on_black_24dp);
-                        img.setBounds(0,0 ,60,60);
+                        img.setBounds(5,6 ,100,100);
                         tv.setCompoundDrawables(img, null,null,null);
+                        tv.setMovementMethod(LinkMovementMethod.getInstance());
                         break;
                     case R.id.radio3:
                         Variables.radioButtonClicked = R.id.radio3;

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ public class TourFragment extends Fragment {
     private Button createPersonalTour;
 
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,7 +37,8 @@ public class TourFragment extends Fragment {
 
         createPersonalTour = view.findViewById(R.id.button_create_personal_tour);
 
-        ArrayList<String> tour_titles = new ArrayList<>();
+
+        final ArrayList<String> tour_titles = new ArrayList<>();
 
         tour_titles.add("Theaters Tour");
         tour_titles.add("Museums Tour");
@@ -70,7 +73,17 @@ public class TourFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println("SUUKA");
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new TourProfile());
+                fragmentTransaction.addToBackStack("tag");
+                Variables.position_of_Tour = position;
+                fragmentTransaction.commit();
+            }
+        });
         return view;
     }
 }

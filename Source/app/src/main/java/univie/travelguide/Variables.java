@@ -66,8 +66,8 @@ public class Variables {
 
 
     public static Map<String, String> sightseeingDescription = new TreeMap<String, String>(){{
-        put("Albertina","The Albertina is a museum in the Innere Stadt (First District) of Vienna, Austria. It houses one of the largest and most important print rooms in the world with approximately 65,000 drawings and approximately 1 million old master prints, as well as more modern graphic works, photographs and architectural drawings. Apart from the graphics collection the museum has recently acquired on permanent loan two significant collections of Impressionist and early 20th-century art, some of which will be on permanent display. The museum also houses temporary exhibitions. ");
-        put("Belvedere","The Belvedere is a historic building complex in Vienna, Austria, consisting of two Baroque palaces (the Upper and Lower Belvedere), the Orangery, and the Palace Stables. The buildings are set in a Baroque park landscape in the third district of the city, on the south-eastern edge of its centre. It houses the Belvedere museum. The grounds are set on a gentle gradient and include decorative tiered fountains and cascades, Baroque sculptures, and majestic wrought iron gates. The Baroque palace complex was built as a summer residence for Prince Eugene of Savoy. ");
+        put("Albertina","The Albertina is a museum in the Innere Stadt (First District) of Vienna, Austria. It houses one of the largest and most important print rooms in the world with approximately 65,000 drawings and approximately 1 million old master prints, as well as more modern graphic works, photographs and architectural drawings. Apart from the graphics collection the museum has recently acquired on permanent loan two significant collections of Impressionist and early 20th-century art, some of which will be on permanent display.");
+        put("Belvedere","The Belvedere is a historic building complex in Vienna, Austria, consisting of two Baroque palaces, the Orangery, and the Palace Stables. The buildings are set in a Baroque park landscape in the third district of the city, on the south-eastern edge of its centre. It houses the Belvedere museum. The grounds are set on a gentle gradient and include decorative tiered fountains and cascades, Baroque sculptures, and majestic wrought iron gates. The Baroque palace complex was built as a summer residence for Prince Eugene of Savoy. ");
         put("Hundertwasser","The Hundertwasserhaus is an apartment house in Vienna, Austria, built after the idea and concept of Austrian artist Friedensreich Hundertwasser with architect Joseph Krawina as a co-creator. ");
         put("Karlsplatz","With its unique collection of high-quality artworks and historic exhibits, the Wien Museum offers insights into the city's history, from the Neolithic to the present day.");
         put("Art History Museum","The Kunsthistorisches Museum is an art museum in Vienna, Austria. Housed in its festive palatial building on Ringstraße, it is crowned with an octagonal dome. The term Kunsthistorisches Museum applies to both the institution and the main building. It is the largest art museum in the country. ");
@@ -168,6 +168,7 @@ public class Variables {
     static public String currentUser = "";
     static public String currentUserBirthdate = "";
 
+
     static List<HashMap<String, String>> commentsList = new ArrayList<HashMap<String, String>>();
 
     static List<String> commentUserName = new ArrayList<String>(){
@@ -182,6 +183,8 @@ public class Variables {
         add("It is a nice place");
     }};
 
+
+    static public Integer position_of_Tour =0;
 
     static public List<String>  getSightseeingList() {
         List<String> title = new ArrayList<>(sighseeingWithCategory.keySet());
