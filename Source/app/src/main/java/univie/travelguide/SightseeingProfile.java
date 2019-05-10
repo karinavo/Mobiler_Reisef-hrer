@@ -58,7 +58,7 @@ public class SightseeingProfile extends Fragment {
             }
         });
 
-      /**  final CheckBox checkBox = view.findViewById(R.id.likeIcon);
+        final CheckBox checkBox = view.findViewById(R.id.addToFav);
 
         if(Variables.favouriteSightseeings.contains(Variables.itemPosition)){
             checkBox.setChecked(true);
@@ -72,11 +72,10 @@ public class SightseeingProfile extends Fragment {
                 }
                 if(!isChecked){
                     Variables.favouriteSightseeings.remove(Variables.itemPosition);
-                    System.out.println(Variables.favouriteSightseeings);
                 }
             }
         });
-*/
+
 
         return view;
     }
