@@ -37,7 +37,7 @@ public class LoginFragment extends Fragment {
                     Variables.currentProfile = EtLoginEmail.getText().toString();                   //set current profile for next MyAccount Activity
 
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.fragment_container, new MyAccountFragment());
+                    fragmentTransaction.replace(R.id.fragment_container, new MyAccountFragment()).addToBackStack("tag");
                     fragmentTransaction.commit();
                 }
                 else {
@@ -52,7 +52,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, new RegisterFragment());
+                fragmentTransaction.replace(R.id.fragment_container, new RegisterFragment()).addToBackStack("tag");
                 fragmentTransaction.commit();
             }
         });

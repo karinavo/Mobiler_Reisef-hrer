@@ -1,8 +1,10 @@
 package univie.travelguide;
 
+import android.app.ActionBar;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +24,9 @@ public class SightseeingProfile extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_sightseeing_profile,null);
 
+
+
+
         final TextView tv = view.findViewById(R.id.text_view);
         final ImageView image_sightseeing = view.findViewById(R.id.imageView1);
         RadioGroup radioGroup = view .findViewById(R.id.radio_group);
@@ -40,7 +45,9 @@ public class SightseeingProfile extends Fragment {
                         tv.setText(Variables.sightseeingopenhours.get(Variables.getHours().get(Variables.itemPosition)));
                         break;
                     case R.id.radio3:
-                        System.out.println("REVIEWS");
+                        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_container, new ReviewFragment()).addToBackStack("tag");
+                        fragmentTransaction.commit();
                 }
             }
         });
