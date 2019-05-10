@@ -168,6 +168,20 @@ public class Variables {
     static public String currentUser = "";
     static public String currentUserBirthdate = "";
 
+    static List<HashMap<String, String>> commentsList = new ArrayList<HashMap<String, String>>();
+
+    static List<String> commentUserName = new ArrayList<String>(){
+            {
+                add("Karina Volobuieva");
+                add("Ruslan Jelbuldin");
+                add("Hakob Harutunyan");
+            }
+    };
+
+    static List<String> commentUserFeedback = new ArrayList<String>(){{
+        add("It is a nice place");
+    }};
+
 
     static public List<String>  getSightseeingList() {
         List<String> title = new ArrayList<>(sighseeingWithCategory.keySet());
@@ -191,6 +205,24 @@ public class Variables {
             list_of_sightseeings.add(map_of_sightseeings);
 
         }
+    }
+
+    public static void fillCommentsList() {
+        for (int i = 0; i < commentUserName.size(); i++) {
+            HashMap<String, String> hm = new HashMap<String, String>();
+            hm.put("listview_title", commentUserName.get(i));
+            hm.put("listview_discription", commentUserFeedback.get(0));
+            hm.put("listview_image", Integer.toString(R.drawable.ic_user));
+            commentsList.add(hm);
+        }
+    }
+
+    public static void addNewComment(String message) {
+        HashMap<String, String> hm = new HashMap<String, String>();
+        hm.put("listview_title", currentUser);
+        hm.put("listview_discription", message);
+        hm.put("listview_image", Integer.toString(R.drawable.ic_user));
+        commentsList.add(hm);
     }
 
 

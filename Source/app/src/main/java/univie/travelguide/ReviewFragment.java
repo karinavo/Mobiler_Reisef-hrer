@@ -26,8 +26,6 @@ import java.util.List;
 
 public class ReviewFragment extends Fragment {
 
-    static List<String> listUserMean = new ArrayList<>();
-    static List<String> listUserName = new ArrayList<>();
 
     static String username;
 
@@ -37,42 +35,7 @@ public class ReviewFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_review_fragment,null);
 
 
-
-        Button sumbit;
-        TextInputEditText result;
-
-
-
-        //Array to save User Image
-
-            // Add defaul 4 User name and mean, Add once only
-                listUserName.add("John Lennon");
-                listUserName.add("Paul McCartney");
-                listUserName.add("George Harrison");
-
-
-                // text source: http://pun.me/pages/
-                listUserMean.add("The elevator to success is out of order. You’ll have to use the stairs");
-                listUserMean.add("The more you weight the harder you are to kidnap. Stay safe, eat cake.");
-                listUserMean.add("If you’re not supposed to eat at night, why is there a light bulb in the refrigerator?");
-
-
-
-            // List  to save Foto , name and mean from user
-            List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
-
-            // Foto name and mean in Map add and then at the and in List
-            for (int i = listUserMean.size()-1; i >= 0; i--) {
-                HashMap<String, String> hm = new HashMap<String, String>();
-                hm.put("listview_title", listUserName.get(i));
-                hm.put("listview_discription", listUserMean.get(i));
-                hm.put("listview_image", Integer.toString(R.drawable.ic_user));
-                aList.add(hm);
-            }
-
-
-            //text_view_for_eatlist is our Shablon that add in ListView in every singel line Foto , name and mean from User
-            SimpleAdapter simpleAdapter = new SimpleAdapter(view.getContext(), aList, R.layout.listview_with_image,
+            SimpleAdapter simpleAdapter = new SimpleAdapter(view.getContext(), Variables.commentsList, R.layout.listview_with_image,
                     Variables.from, Variables.to);
             ListView search = view.findViewById(R.id.listfeedbackid);
             search.setAdapter(simpleAdapter);
@@ -100,12 +63,8 @@ public class ReviewFragment extends Fragment {
             }
         });
 
-
-
-
-
-
-
         return view;
     }
+
+
 }

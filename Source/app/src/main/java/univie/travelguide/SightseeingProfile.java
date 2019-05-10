@@ -166,7 +166,7 @@ public class SightseeingProfile extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String content = feedbackContent.getText().toString();
-                System.out.println("CONTENT " + content);
+                Variables.addNewComment(content);
             }
         });
         builder.show();

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_main);
         Variables.fillSightseeingMap();
-
+        Variables.fillCommentsList();
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
         replaceFragment(new HomeFragment());
