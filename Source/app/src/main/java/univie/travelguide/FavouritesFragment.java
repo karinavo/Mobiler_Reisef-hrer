@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,10 +61,9 @@ public class FavouritesFragment extends Fragment {
         });
 
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(view.getContext().getApplicationContext(),
+        final SimpleAdapter simpleAdapter = new SimpleAdapter(view.getContext().getApplicationContext(),
                 list_of_sightseeings2, R.layout.listview_favourites, Variables.from, Variables.to);
-        ListView search = (ListView) view.findViewById(R.id.list_view);
-
+        ListView search = view.findViewById(R.id.list_view);
 
         search.setAdapter(simpleAdapter);
 
