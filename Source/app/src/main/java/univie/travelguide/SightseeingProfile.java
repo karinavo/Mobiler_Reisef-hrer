@@ -40,6 +40,7 @@ public class SightseeingProfile extends Fragment {
         final TextView tv = view.findViewById(R.id.text_view);
         final ImageView image_sightseeing = view.findViewById(R.id.imageView1);
         final RadioGroup radioGroup = view .findViewById(R.id.radio_group);
+        final ImageView im_map = view.findViewById(R.id.map);
         radioGroup.check(Variables.radioButtonClicked);
 
         image_sightseeing.setImageResource(Variables.sightseeingMap.get(Variables.flag_sightseeing).getImageNumber());
@@ -49,19 +50,18 @@ public class SightseeingProfile extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.radio1:
+                        im_map.setVisibility(View.INVISIBLE);
                         Variables.radioButtonClicked = R.id.radio1;
                         image_sightseeing.setImageResource(Variables.sightseeingMap.get(Variables.flag_sightseeing).getImageNumber());
                         tv.setText(Variables.sightseeingMap.get(Variables.flag_sightseeing).getDescription());
-                        tv.setCompoundDrawables(null, null,null,null);
                         break;
                     case R.id.radio2:
+                        im_map.setVisibility(View.VISIBLE);
                         Variables.radioButtonClicked = R.id.radio2;
                         tv.setText("");
                         image_sightseeing.setImageResource(Variables.sightseeingMap.get(Variables.flag_sightseeing).getImageNumber());
                         tv.setText(Variables.sightseeingMap.get(Variables.flag_sightseeing).getAdress());
-                        Drawable img = view.getContext().getResources().getDrawable(R.drawable.ic_location_on_black_24dp);
-                        img.setBounds(5,6 ,100,100);
-                        tv.setCompoundDrawables(img, null,null,null);
+
                         tv.setMovementMethod(LinkMovementMethod.getInstance());
                         break;
                     case R.id.radio3:

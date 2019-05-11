@@ -4,7 +4,7 @@
     <item android:state_checked="true">
         <shape>
             <corners android:topLeftRadius="300dp" android:bottomLeftRadius="300dp" />
-            <solid android:color="@color/red" />
+            <solid android:color="@color/peach" />
             <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
         </shape>
     </item>
@@ -21,7 +21,7 @@
     <item>
         <shape>
             <corners android:topLeftRadius="300dp" android:bottomLeftRadius="300dp" />
-            <stroke android:width="3dp" android:color="@color/red" />
+            <stroke android:width="3dp" android:color="@color/peach" />
             <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
         </shape>
     </item>

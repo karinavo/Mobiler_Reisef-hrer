@@ -15,13 +15,7 @@ public class Variables {
     private static String getAddress() {
         return "Adresse: Prinz-Eugen-Straße 27, 1030 Wien\n" +
                 "Öffnungszeiten:\n" +
-                "Donnerstag\t09:00–18:00\n" +
-                "Freitag\t09:00–21:00\n" +
-                "Samstag\t09:00–18:00\n" +
-                "Sonntag\t09:00–18:00\n" +
-                "Montag\t09:00–18:00\n" +
-                "Dienstag\t09:00–18:00\n" +
-                "Mittwoch\t09:00–18:00";
+                "Mon-Sun\t09:00–18:00\n" ;
     }
 
 
