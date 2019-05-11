@@ -130,7 +130,6 @@ public class TourProfile extends Fragment {
                 fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile());
                 fragmentTransaction.addToBackStack("tag");
                 Variables.flag_sightseeing = "";
-                Variables.itemPosition = position;
                 fragmentTransaction.commit();
             }
         });

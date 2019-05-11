@@ -25,6 +25,9 @@ import android.widget.Toast;
 import com.hsalf.smilerating.BaseRating;
 import com.hsalf.smilerating.SmileRating;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SightseeingProfile extends Fragment {
 
     @Nullable
@@ -34,30 +37,28 @@ public class SightseeingProfile extends Fragment {
         SmileRating smileRating = view.findViewById(R.id.smile_rating);
 
 
-
-
         final TextView tv = view.findViewById(R.id.text_view);
         final ImageView image_sightseeing = view.findViewById(R.id.imageView1);
         final RadioGroup radioGroup = view .findViewById(R.id.radio_group);
         radioGroup.check(Variables.radioButtonClicked);
 
-        image_sightseeing.setImageResource(Variables.sightseeingWithFoto.get(Variables.getSightseeingList().get(Variables.itemPosition)));
-        tv.setText(Variables.sightseeingDescription.get(Variables.getDesription().get(Variables.itemPosition)));
+        image_sightseeing.setImageResource(Variables.sightseeingMap.get(Variables.flag_sightseeing).getImageNumber());
+        tv.setText(Variables.sightseeingMap.get(Variables.flag_sightseeing).getDescription());
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.radio1:
                         Variables.radioButtonClicked = R.id.radio1;
-                        image_sightseeing.setImageResource(Variables.sightseeingWithFoto.get(Variables.getSightseeingList().get(Variables.itemPosition)));
-                        tv.setText(Variables.sightseeingDescription.get(Variables.getDesription().get(Variables.itemPosition)));
+                        image_sightseeing.setImageResource(Variables.sightseeingMap.get(Variables.flag_sightseeing).getImageNumber());
+                        tv.setText(Variables.sightseeingMap.get(Variables.flag_sightseeing).getDescription());
                         tv.setCompoundDrawables(null, null,null,null);
                         break;
                     case R.id.radio2:
                         Variables.radioButtonClicked = R.id.radio2;
                         tv.setText("");
-                        image_sightseeing.setImageResource(Variables.sightseeingWithFoto.get(Variables.getSightseeingList().get(Variables.itemPosition)));
-                        tv.setText(Variables.sightseeingopenhours.get(Variables.getHours().get(Variables.itemPosition)));
+                        image_sightseeing.setImageResource(Variables.sightseeingMap.get(Variables.flag_sightseeing).getImageNumber());
+                        tv.setText(Variables.sightseeingMap.get(Variables.flag_sightseeing).getAdress());
                         Drawable img = view.getContext().getResources().getDrawable(R.drawable.ic_location_on_black_24dp);
                         img.setBounds(5,6 ,100,100);
                         tv.setCompoundDrawables(img, null,null,null);
@@ -74,7 +75,7 @@ public class SightseeingProfile extends Fragment {
 
         final CheckBox checkBox = view.findViewById(R.id.addToFav);
 
-        if(Variables.favouriteSightseeings.contains(Variables.itemPosition)){
+        if(Variables.favouriteSightseeings.contains(Variables.flag_sightseeing)){
             checkBox.setChecked(true);
         }
 
@@ -82,10 +83,10 @@ public class SightseeingProfile extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    Variables.favouriteSightseeings.add(Variables.itemPosition);
+                    Variables.favouriteSightseeings.add(Variables.flag_sightseeing);
                 }
                 if(!isChecked){
-                    Variables.favouriteSightseeings.remove(Variables.itemPosition);
+                    Variables.favouriteSightseeings.remove(Variables.flag_sightseeing);
                 }
             }
         });

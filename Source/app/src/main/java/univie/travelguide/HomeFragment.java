@@ -25,6 +25,8 @@ import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,7 +58,16 @@ public class HomeFragment extends Fragment   {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 final List<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
-                    if(Variables.sighseeingWithCategory.keySet().contains(query)) {
+                boolean containsKey = false;
+                for(Map.Entry<String, Sightseeing> entry : Variables.sightseeingMap.entrySet()) {
+                    String key = entry.getKey();
+                    if(key.toUpperCase().contains(query.toUpperCase())){
+                        containsKey = true;
+                        break;
+                    }
+
+                }
+                    if(containsKey) {
                         simpleAdapter.getFilter().filter(query);
                     }
                     else{
@@ -124,14 +135,17 @@ public class HomeFragment extends Fragment   {
                 fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile());
                 fragmentTransaction.addToBackStack("tag");
                 Variables.flag_sightseeing = "";
-                if(filtered==false){
-                    Variables.itemPosition = position;
-                }else {
 
+
+                String str = parent.getItemAtPosition(position).toString();
+                for(String sightseeing: Variables.getSightseeingList()){
+                    if(str.contains(sightseeing)){
+                        Variables.flag_sightseeing = sightseeing;
+                    }
                 }
                 fragmentTransaction.commit();
-            }
-        });
+
+        }});
 
         return view;
     }

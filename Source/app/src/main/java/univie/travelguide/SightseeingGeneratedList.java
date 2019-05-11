@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class SightseeingGeneratedList extends Fragment {
@@ -24,9 +25,7 @@ public class SightseeingGeneratedList extends Fragment {
 
         View view = inflater.inflate(R.layout.activity_sightseeing_generated_list, null);
 
-        ArrayList<String> titles = new ArrayList<>(Variables.sightseeingWithFoto.keySet());
-        ArrayList<Integer> photos = new ArrayList<>(Variables.sightseeingWithFoto.values());
-        ArrayList<String> descriptions = new ArrayList<>(Variables.sightseeingDescription.values());
+        ArrayList<String> titles = new ArrayList<>(Variables.sightseeingMap.keySet());
 
         ArrayList<String> titles_new = new ArrayList<>();
         ArrayList<Integer> photos_new = new ArrayList<>();
@@ -34,27 +33,31 @@ public class SightseeingGeneratedList extends Fragment {
 
     //Pick titles from ArrayList titles defined in this scope
         int numberOfElements = 3;
-        Random random = new Random();
+        List<Integer> randomList = new ArrayList<>();
+        while(randomList.size() != 3){
+            int randomIndex = new Random().nextInt(titles.size());
+            if(!randomList.contains(randomIndex)) randomList.add(randomIndex);
+        }
 
-        for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = random.nextInt(titles.size());
-
-            String randomElementTitle = titles.get(randomIndex);
+        for(int i = 0; i < 3; i++){
+            String randomElementTitle = titles.get(randomList.get(i));
             titles_new.add(randomElementTitle);
 
 //            String randomElementDescription = descriptions.get(randomIndex);
 //            descriptions_new.add(randomElementDescription);
+            String randomElementDescription = Variables.sightseeingMap.get(titles.get(randomList.get(i))).getDescription();
+            descriptions_new.add(randomElementDescription);
 
-            Integer randomElementPhoto = photos.get(randomIndex);
+            Integer randomElementPhoto = Variables.sightseeingMap.get(titles.get(randomList.get(i))).getImageNumber();
             photos_new.add(randomElementPhoto);
-
-            titles.remove(randomIndex);
         }
 
 
         descriptions_new.add("Day 1");
         descriptions_new.add("Day 1");
         descriptions_new.add("Day 2");
+
+
 
         CustomAdapterClass adapter = new CustomAdapterClass(getActivity(), titles_new, descriptions_new, photos_new);
 
@@ -76,7 +79,6 @@ public class SightseeingGeneratedList extends Fragment {
                 fragmentTransaction.addToBackStack("tag");
                 Variables.flag_sightseeing = "";
                 //  InfoSightseeing.flag_sightseeing =  parent.getItemAtPosition(position).toString();
-                Variables.itemPosition = position;
                 fragmentTransaction.commit();
             }
         });

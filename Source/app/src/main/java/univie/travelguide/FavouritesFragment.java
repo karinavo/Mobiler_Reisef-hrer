@@ -32,12 +32,10 @@ public class FavouritesFragment extends Fragment {
         Set<Map<String,String>> list_of_sightseeings = new HashSet<>();
         Set<Map<String,String>> list_of_tours = new HashSet<>();
 
-        //fill the list of favourites sightseeing
-        for(Integer i: Variables.favouriteSightseeings){
-            final String tempSight = Variables.getSightseeingList().get(i);
+        for(String i: Variables.favouriteSightseeings){
             Map<String, String> temp = new TreeMap<>();
-            temp.put("listview_image", Integer.toString(Variables.sightseeingWithFoto.get(tempSight)));
-            temp.put("listview_title", tempSight);
+            temp.put("listview_image", Integer.toString(Variables.sightseeingMap.get(i).getImageNumber()));
+            temp.put("listview_title", i);
             list_of_sightseeings.add(temp);
         }
 
