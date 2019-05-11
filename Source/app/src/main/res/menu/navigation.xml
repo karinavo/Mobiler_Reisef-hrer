@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/navigation_tours"
-        android:icon="@drawable/ic_guide"
+        android:icon="@drawable/custom_tour"
         android:title="@string/title_tour" />
 
     <item
@@ -18,8 +18,8 @@
 
     <item
         android:id="@+id/navigation_favourites"
-        android:icon="@drawable/ic_favorite_black_24dp"
-        android:title="@string/title_favourite" />
+        android:icon="@drawable/ic_bookmark_black_24dp"
+        android:title="@string/title_saved" />
     <item
         android:windowLightNavigationBar="true"
         android:id="@+id/navigation_profile"
