@@ -152,7 +152,15 @@ public class TourProfile extends Fragment {
         int id = item.getItemId();
         if(id == R.id.action_favorite_unchecked){
             item.setChecked(!item.isChecked());
-            item.setIcon(item.isChecked() ? R.drawable.ic_bookmark_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
+            if(item.isChecked()) {
+                item.setIcon(R.drawable.ic_bookmark_white_24dp);
+                Variables.favouriteSightseeings.add(Variables.flag_sightseeing);
+            }
+            else {
+                item.setIcon(R.drawable.ic_bookmark_border_white_24dp);
+                Variables.favouriteSightseeings.remove(Variables.flag_sightseeing);
+            }
+
             return true;
         }
 
