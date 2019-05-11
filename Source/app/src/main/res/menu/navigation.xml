@@ -21,8 +21,9 @@
         android:icon="@drawable/ic_favorite_black_24dp"
         android:title="@string/title_favourite" />
     <item
+        android:windowLightNavigationBar="true"
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/ic_person_black_24dp"
+        android:icon="@drawable/icons8_tourist"
         android:title="@string/title_profile" />
 
 

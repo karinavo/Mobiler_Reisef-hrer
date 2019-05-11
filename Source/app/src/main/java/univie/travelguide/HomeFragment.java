@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment   {
     List<ImageView> images_museums = new ArrayList<>();
     Spinner cat;
     public static  SimpleAdapter simpleAdapter;
-
+    boolean filtered = false;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
@@ -81,24 +81,29 @@ public class HomeFragment extends Fragment   {
                             Variables.list_of_sightseeings, R.layout.listview_with_image, Variables.from, Variables.to);
                     listView.setAdapter(simpleAdapter);
                 }else if(cat.getSelectedItemId()==1) {
+                    filtered = true;
                     simpleAdapter.getFilter().filter("Museum");
                  //   simpleAdapter.notifyDataSetInvalidated();
                 }
                 else if(cat.getSelectedItemId()==2) {
+                    filtered = true;
                     simpleAdapter.getFilter().filter("Building");
                  //   simpleAdapter.notifyDataSetInvalidated();
 
                 }
                 else if(cat.getSelectedItemId()==3) {
+                    filtered = true;
                     simpleAdapter.getFilter().filter("Park");
                     simpleAdapter.notifyDataSetInvalidated();
                 }
                 else if(cat.getSelectedItemId()==4) {
+                    filtered = true;
                     simpleAdapter.getFilter().filter("Church");
                     simpleAdapter.notifyDataSetInvalidated();
 
                 }
                 else if(cat.getSelectedItemId()==5) {
+                    filtered = true;
                     simpleAdapter.getFilter().filter("Palace");
                     //simpleAdapter.notifyDataSetInvalidated();
 
@@ -119,7 +124,11 @@ public class HomeFragment extends Fragment   {
                 fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile());
                 fragmentTransaction.addToBackStack("tag");
                 Variables.flag_sightseeing = "";
-                Variables.itemPosition = position;
+                if(filtered==false){
+                    Variables.itemPosition = position;
+                }else {
+
+                }
                 fragmentTransaction.commit();
             }
         });

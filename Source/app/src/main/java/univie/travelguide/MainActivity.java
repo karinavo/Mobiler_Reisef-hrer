@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         Variables.fillCommentsList();
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
+        navigation.getMenu().getItem(2).setIcon(R.drawable.icons8_point_of);
         replaceFragment(new HomeFragment());
     }
 
