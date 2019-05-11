@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +58,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = new FavouritesFragment();
                 break;
             case R.id.navigation_profile:
-                fragment = new LoginFragment();
-                break;
+                if(!(Variables.currentProfile == null) && !(Variables.currentProfile.isEmpty())) {
+                    fragment = new MyAccountFragment();
+                    break;
+                }
+                    fragment = new LoginFragment();
+                    break;
+
+
         }
 
         return replaceFragment(fragment);    }

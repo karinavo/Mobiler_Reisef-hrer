@@ -36,6 +36,7 @@
     <string name="save_unchecked">save_unchecked</string>
     <string name="save_checked">save_checked</string>
     <string name="date_of_birth">Date of Birth</string>
+    <string name="history">History</string>
     <string-array name="sightseeing_array">
         <item>All categories</item>
         <item>Museum</item>

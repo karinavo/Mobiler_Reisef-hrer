@@ -28,7 +28,7 @@
             android:background="@drawable/checkbox_background"
             android:button="@null"
             android:checked="true"
-            android:text="History"
+            android:text="@string/history"
             android:textAlignment="center"
             android:textAllCaps="true"
             />
@@ -40,7 +40,7 @@
             android:layout_weight="1"
             android:background="@drawable/checkbox_background"
             android:button="@null"
-            android:text="Information"
+            android:text="@string/info"
             android:textAlignment="center"
             android:textAllCaps="true" />
 
