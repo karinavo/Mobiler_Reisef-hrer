@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="viewStart"
-            android:textColor="@color/peach"
+            android:textColor="@android:color/background_dark"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
             android:textAlignment="viewStart"
-            android:textColor="@android:color/background_dark"
+            android:textColor="#9ea7aa"
             android:textSize="16dp"
             android:textStyle="bold" />
     </LinearLayout>
