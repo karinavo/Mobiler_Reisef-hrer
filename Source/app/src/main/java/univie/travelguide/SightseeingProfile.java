@@ -61,8 +61,14 @@ public class SightseeingProfile extends Fragment {
                         tv.setText("");
                         image_sightseeing.setImageResource(Variables.sightseeingMap.get(Variables.flag_sightseeing).getImageNumber());
                         tv.setText(Variables.sightseeingMap.get(Variables.flag_sightseeing).getAdress());
-
-                        tv.setMovementMethod(LinkMovementMethod.getInstance());
+                        im_map.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                fragmentTransaction.replace(R.id.fragment_container, new MapFragment()).addToBackStack("tag");
+                                fragmentTransaction.commit();
+                            }
+                        });
                         break;
                     case R.id.radio3:
                         Variables.radioButtonClicked = R.id.radio3;
