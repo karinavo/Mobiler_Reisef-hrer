@@ -1,24 +1,25 @@
 package univie.travelguide;
 
 import android.app.DatePickerDialog;
-import android.graphics.drawable.ColorDrawable;
-import android.hardware.TriggerEvent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.TimeZone;
+
+import static java.lang.Integer.parseInt;
 
 public class RegisterFragment extends Fragment {
     private EditText RegisterEmail;
@@ -26,8 +27,10 @@ public class RegisterFragment extends Fragment {
     private EditText RegisterName;
     private EditText RegisterSurname;
     private Button RegisterButton;
-    private TextView TextViewBirthDate;
-    private FloatingActionButton ButtonSet;
+    private ImageButton ButtonSet;
+    private Button ButtonCancel;
+    private EditText Birthday;
+
 
     @Nullable
     @Override
@@ -39,57 +42,68 @@ public class RegisterFragment extends Fragment {
         RegisterName = view.findViewById(R.id.et_reg_name);
         RegisterSurname = view.findViewById(R.id.et_reg_surname);
         RegisterButton = view.findViewById(R.id.btn_register);
-        TextViewBirthDate = view.findViewById(R.id.tv_date_of_birth);
-        ButtonSet = view.findViewById(R.id.floatingActionButtonSetBirthDate);
+        ButtonCancel = view.findViewById(R.id.btn_cancel);
 
+        //Calrendar new
 
-        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+//        final EditText Birthday;
+        final DatePickerDialog[] picker = new DatePickerDialog[1];
 
-        final int currentYear = calendar.get(Calendar.YEAR);
-        final int currentMonth = calendar.get(Calendar.MONTH) + 1;
-        final int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+        Birthday = view.findViewById(R.id.et_date_of_birth);
+        Birthday.setInputType(InputType.TYPE_NULL);
+        Birthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar cldr = Calendar.getInstance();
+                int day = cldr.get(Calendar.DAY_OF_MONTH);
+                int month = cldr.get(Calendar.MONTH);
+                int year = cldr.get(Calendar.YEAR);
+                // date picker dialog
+                picker[0] = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Dialog,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                Birthday.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                            }
+                        }, year, month, day);
+                picker[0].show();
+            }
+        });
 
-
-
-
-        TextViewBirthDate.setText(currentDay + "." + currentMonth + "." + currentYear);
-
+        //calendar new end
 
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<String> data = new ArrayList<>();
+                if(RegisterPassword.getText().toString().isEmpty() || RegisterName.getText().toString().isEmpty()
+                        || RegisterSurname.getText().toString().isEmpty() || Birthday.getText().toString().isEmpty())
+                {
+                    Toast.makeText(getActivity(), "You left some field(s) empty!", Toast.LENGTH_LONG).show();
+                }
+                if(2019 - parseInt(Birthday.getText().toString().substring(Birthday.getText().toString().length()-4)) < 18)
+                {
+                    Toast.makeText(getActivity(), "You must be older 18!", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    ArrayList<String> data = new ArrayList<>();
 
-                data.add(RegisterPassword.getText().toString());
-                data.add(RegisterName.getText().toString());
-                data.add(RegisterSurname.getText().toString());
-                data.add(TextViewBirthDate.getText().toString());
-                Register(RegisterEmail.getText().toString(), data);
+                    data.add(RegisterPassword.getText().toString());
+                    data.add(RegisterName.getText().toString());
+                    data.add(RegisterSurname.getText().toString());
+                    data.add(Birthday.getText().toString());
+                    Register(RegisterEmail.getText().toString(), data);
+                }
             }
         });
 
-    //Calendar
-        ButtonSet.setOnClickListener(new View.OnClickListener() {
+        ButtonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                DatePickerDialog dialog = new DatePickerDialog(getContext(), android.R.style.Theme_Holo_Dialog, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        TextViewBirthDate.setText(day + "." + month + "." + year);
-                    }
-                }, currentYear, currentMonth, currentDay);
-
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
-                dialog.show();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new LoginFragment()).addToBackStack("tag");
+                fragmentTransaction.commit();
             }
         });
-
-
-    //Calendar
-
 
         return view;
     }
@@ -98,5 +112,13 @@ public class RegisterFragment extends Fragment {
         System.out.println("email: " + email);
         System.out.println("Array: " + data);
         Variables.database.put(email, data);
+
+        Toast.makeText(getActivity(), "Successfully Signed Up!", Toast.LENGTH_SHORT).show();
+
+        if(new LoginFragment().validate(email,data.get(0))) {
+            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, new MyAccountFragment()).addToBackStack("tag");
+            fragmentTransaction.commit();
+        }
     }
 }

@@ -34,7 +34,6 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (validate(EtLoginEmail.getText().toString(), Password.getText().toString())) {
-                    Variables.currentProfile = EtLoginEmail.getText().toString();                   //set current profile for next MyAccount Activity
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, new MyAccountFragment()).addToBackStack("tag");
                     fragmentTransaction.commit();
@@ -62,8 +61,12 @@ public class LoginFragment extends Fragment {
 
     public boolean validate(String login, String password) {
         if(Variables.database.containsKey(login)) {
-            return Variables.database.get(login).get(0).equals(password);
+            if(Variables.database.get(login).get(0).equals(password)){
+                Variables.currentProfile = login;
+                return true;
+            }
         }
+
         return false;
     }
 

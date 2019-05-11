@@ -42,8 +42,8 @@ public class SightseeingGeneratedList extends Fragment {
             String randomElementTitle = titles.get(randomIndex);
             titles_new.add(randomElementTitle);
 
-            String randomElementDescription = descriptions.get(randomIndex);
-            descriptions_new.add(randomElementDescription);
+//            String randomElementDescription = descriptions.get(randomIndex);
+//            descriptions_new.add(randomElementDescription);
 
             Integer randomElementPhoto = photos.get(randomIndex);
             photos_new.add(randomElementPhoto);
@@ -52,6 +52,9 @@ public class SightseeingGeneratedList extends Fragment {
         }
 
 
+        descriptions_new.add("Day 1");
+        descriptions_new.add("Day 1");
+        descriptions_new.add("Day 2");
 
         CustomAdapterClass adapter = new CustomAdapterClass(getActivity(), titles_new, descriptions_new, photos_new);
 

@@ -6,28 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".RegisterFragment">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButtonSetBirthDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:clickable="true"
-        android:src="@drawable/ic_icons8_google_calendar"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_date_of_birth"
-        app:layout_constraintTop_toBottomOf="@+id/et_reg_surname"
-        app:layout_constraintVertical_bias="0.0"
-        tools:src="@drawable/ic_calendar_spring_and_squares_interface_symbol" />
 
     <EditText
         android:id="@+id/et_reg_email"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -40,11 +22,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.18" />
 
     <EditText
         android:id="@+id/et_reg_password"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -61,7 +43,7 @@
 
     <EditText
         android:id="@+id/et_reg_name"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -78,7 +60,7 @@
 
     <EditText
         android:id="@+id/et_reg_surname"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -93,37 +75,55 @@
         app:layout_constraintTop_toBottomOf="@+id/et_reg_name"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/tv_date_of_birth"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:textSize="20sp"
+        android:background="@drawable/login_buttons_design"
+        android:text="@string/register"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_reg_surname"
-        app:layout_constraintVertical_bias="0.022"
-        tools:text="@tools:sample/date/ddmmyy" />
+        app:layout_constraintTop_toBottomOf="@+id/et_date_of_birth"
+        app:layout_constraintVertical_bias="0.100000024" />
 
     <Button
-        android:id="@+id/btn_register"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_cancel"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="248dp"
-        android:text="@string/register"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/login_buttons_design"
+        android:text="@string/cancel"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_date_of_birth"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/et_date_of_birth"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="date"
+        android:hint="@string/date_of_birth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_reg_surname"
         app:layout_constraintVertical_bias="0.0" />
 
 
