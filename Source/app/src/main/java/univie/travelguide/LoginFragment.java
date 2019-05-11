@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class LoginFragment extends Fragment {
 
     private EditText EtLoginEmail;
@@ -40,8 +41,7 @@ public class LoginFragment extends Fragment {
                 }
                 else {
                     Context context = getContext();
-                    Toast toast = Toast.makeText(context, "Wrong login/password!", Toast.LENGTH_LONG);
-                    toast.show();
+                    Toast.makeText(context,"Wrong login/password!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

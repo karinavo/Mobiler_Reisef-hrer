@@ -87,6 +87,7 @@ public class SightseeingProfile extends Fragment {
                 }
                 if(!isChecked){
                     Variables.favouriteSightseeings.remove(Variables.flag_sightseeing);
+                    Toast.makeText(getActivity(), "Added to Saved Sightseeings", Toast.LENGTH_SHORT).show();
                 }
             }
         });

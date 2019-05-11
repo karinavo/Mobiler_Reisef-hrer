@@ -42,24 +42,7 @@ public class MyAccountFragment extends Fragment {
 
 
 //BOOOOOOKMAAARK
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // Inflate the menu items for use in the action bar
-        inflater.inflate(R.menu.mymenu, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if(id == R.id.action_favorite_unchecked){
-            item.setChecked(!item.isChecked());
-            item.setIcon(item.isChecked() ? R.drawable.ic_bookmark_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 //BOOOOOOKMAAARK
 //+mymenu.xml in R.menu
 //BOOOOOOKMAAARK

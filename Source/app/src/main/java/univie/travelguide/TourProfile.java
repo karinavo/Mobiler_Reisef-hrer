@@ -7,6 +7,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -34,7 +37,7 @@ public class TourProfile extends Fragment {
         List<Map<String,String>> list_of_sightseeing_theater=new ArrayList<Map<String, String>>();
         List<Map<String,String>> list_of_sightseeing_parks=new ArrayList<Map<String, String>>();
 
-
+        setHasOptionsMenu(true);
 
         final ArrayList<String> museums = new ArrayList<>();
         final ArrayList<String> theaters = new ArrayList<>();
@@ -136,4 +139,43 @@ public class TourProfile extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // Inflate the menu items for use in the action bar
+        inflater.inflate(R.menu.mymenu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.action_favorite_unchecked){
+            item.setChecked(!item.isChecked());
+            item.setIcon(item.isChecked() ? R.drawable.ic_bookmark_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        // Inflate the menu items for use in the action bar
+//        inflater.inflate(R.menu.mymenu, menu);
+//        super.onCreateOptionsMenu(menu, inflater);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//        if(id == R.id.action_favorite_unchecked){
+//            item.setChecked(!item.isChecked());
+//            item.setIcon(item.isChecked() ? R.drawable.ic_bookmark_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 }

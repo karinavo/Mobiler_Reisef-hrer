@@ -16,7 +16,7 @@
         android:layout_marginBottom="8dp"
         android:text="Create new personal tour"
         android:textSize="20sp"
-        android:background="@color/transparent"
+        android:background="@drawable/button_design"
         android:drawableEnd="@drawable/ic_add_circle_outline_black_24dp"
         android:drawablePadding="-40dp"
         android:paddingEnd="30dp"
