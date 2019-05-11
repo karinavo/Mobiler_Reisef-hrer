@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,6 +25,7 @@ public class SightseeingGeneratedList extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.activity_sightseeing_generated_list, null);
 
@@ -85,5 +89,32 @@ public class SightseeingGeneratedList extends Fragment {
 
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // Inflate the menu items for use in the action bar
+        inflater.inflate(R.menu.mymenu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.action_favorite_unchecked){
+            item.setChecked(!item.isChecked());
+            if(item.isChecked()) {
+                item.setIcon(R.drawable.ic_bookmark_white_24dp);
+                Variables.favouriteSightseeings.add(Variables.flag_sightseeing);
+            }
+            else {
+                item.setIcon(R.drawable.ic_bookmark_border_white_24dp);
+                Variables.favouriteSightseeings.remove(Variables.flag_sightseeing);
+            }
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
