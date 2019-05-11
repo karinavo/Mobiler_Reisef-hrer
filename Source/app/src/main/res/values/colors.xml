@@ -5,6 +5,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#99D81B1B</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="peach">#ff6659</color>
     <color name="milk">#fffcf2</color>
     <color name="red">#d50000</color>
 </resources>

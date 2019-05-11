@@ -31,7 +31,7 @@ public class FavouritesFragment extends Fragment {
         Set<Map<String,String>> list_of_sightseeings = new HashSet<>();
         Set<Map<String,String>> list_of_tours = new HashSet<>();
 
-
+        //fill the list of favourites sightseeing
         for(Integer i: Variables.favouriteSightseeings){
             final String tempSight = Variables.getSightseeingList().get(i);
             Map<String, String> temp = new TreeMap<>();
@@ -39,6 +39,7 @@ public class FavouritesFragment extends Fragment {
             temp.put("listview_title", tempSight);
             list_of_sightseeings.add(temp);
         }
+
         List<Map<String,String>> list_of_sightseeings2 = new ArrayList<>(list_of_sightseeings);
 
 
