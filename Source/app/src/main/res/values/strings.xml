@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Travel Guide</string>
+    <string name="title_home">Home</string>
+    <string name="title_map">Map</string>
+    <string name="title_saved">Saved</string>
+    <string name="title_tour">Tour</string>
+    <string name="title_profile">Profile</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_email">E-mail</string>
+    <string name="btn_login">Login</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_surname">Surname</string>
+    <string name="tours">My Tours</string>
+    <string name="sightseeing">My Sightseeings</string>
+    <string name="register">Sign Up</string>
+    <string name="info">Information</string>
+    <string name="textview">TextView</string>
+    <string name="reviews">Reviews</string>
+    <string name="opening_hours">Opening hours</string>
+    <string name="rb_hours_1">1</string>
+    <string name="rb_hours_2">2</string>
+    <string name="rb_hours_3">3</string>
+    <string name="rb_hours_4">4</string>
+    <string name="rb_hours_5">5</string>
+    <string name="rb_hours_6">6</string>
+    <string name="trip_duration">Trip duration (days)</string>
+    <string name="estimated_budget">Estimated budget</string>
+    <string name="pick_location_of_sightseeings">Pick location of sightseeings</string>
+    <string name="only_near_me">Only near me</string>
+    <string name="everywhere">Everywhere</string>
+    <string name="pick_categories">Pick categories</string>
+    <string name="museums">Museums</string>
+    <string name="churches">Churches</string>
+    <string name="cancel">Cancel</string>
+    <string name="tv_date_of_birth">Date of Birth</string>
+    <string name="save_unchecked">save_unchecked</string>
+    <string name="save_checked">save_checked</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="history">History</string>
+    <string-array name="sightseeing_array">
+        <item>All categories</item>
+        <item>Museum</item>
+        <item>Building</item>
+        <item>Park</item>
+        <item>Church</item>
+        <item>Palace</item>
+    </string-array>
+
+</resources>

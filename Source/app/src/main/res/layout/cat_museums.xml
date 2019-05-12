@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/museums"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    app:civ_border_width="2dp" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/albertina"
+        android:layout_width="83dp"
+        android:layout_height="158dp"
+        android:src="@drawable/albertina"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/belvedere"
+        android:layout_width="83dp"
+        android:layout_height="158dp"
+        android:src="@drawable/belvedere"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/hundertwasser"
+        android:layout_width="83dp"
+        android:layout_height="158dp"
+        android:src="@drawable/hundertwasser"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/leopold"
+        android:layout_width="83dp"
+        android:layout_height="158dp"
+        android:src="@drawable/leopold"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/karlsplatz"
+        android:layout_width="83dp"
+        android:layout_height="158dp"
+        android:src="@drawable/karlsplatz"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/khm"
+        android:layout_width="83dp"
+        android:layout_height="158dp"
+        android:src="@drawable/kunsthistorisches"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mak"
+        android:layout_width="83dp"
+        android:layout_height="158dp"
+        android:src="@drawable/mak"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mumok"
+        android:layout_width="83dp"
+        android:layout_height="158dp"
+        android:src="@drawable/mumok"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="univie.travelguide">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".TourProfile"></activity>
+        <activity android:name=".MapFragment" />
+        <activity android:name=".SightseeingGeneratedList" />
+        <activity android:name=".ReviewFragment" />
+        <activity android:name=".CreateTourFragment" />
+        <activity android:name=".SightseeingProfile" />
+        <activity android:name=".RegisterFragment" />
+        <activity android:name=".MyAccountFragment" />
+        <activity android:name=".LoginFragment" />
+        <activity android:name=".HomeFragment" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
