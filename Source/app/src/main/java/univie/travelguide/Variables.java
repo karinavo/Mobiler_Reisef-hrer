@@ -57,6 +57,7 @@ public class Variables {
     static public Integer tourCounter = 0;
     static public String tourClicked = "";
     static public List<List<String>> createdTourList = new ArrayList<>();
+    static public Map<String, Integer> sightseeingMemory = new HashMap<>();
 
 
     public static Map<String, Tour> toursMap = new TreeMap<String, Tour>(){
@@ -116,6 +117,8 @@ public class Variables {
             list_of_sightseeings.add(getMapForAdapter(sightseeing));
         }
     }
+
+
 
     public static void fillCommentsList() {
         for (int i = 0; i < commentUserName.size(); i++) {

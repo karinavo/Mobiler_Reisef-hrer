@@ -41,7 +41,14 @@ public class SightseeingProfile extends Fragment {
         final ImageView image_sightseeing = view.findViewById(R.id.imageView1);
         final RadioGroup radioGroup = view .findViewById(R.id.radio_group);
         final ImageView im_map = view.findViewById(R.id.map);
-        radioGroup.check(Variables.radioButtonClicked);
+        if(Variables.sightseeingMemory.containsKey(Variables.flag_sightseeing)){
+            radioGroup.check(Variables.sightseeingMemory.get(Variables.flag_sightseeing));
+            Variables.radioButtonClicked = Variables.sightseeingMemory.get(Variables.flag_sightseeing);
+        } else {
+            Variables.sightseeingMemory.put(Variables.flag_sightseeing, R.id.radio1);
+            Variables.radioButtonClicked = Variables.sightseeingMemory.get(Variables.flag_sightseeing);
+
+        }
         final Sightseeing sightseeing = Variables.getSightseeing(Variables.flag_sightseeing);
 
 
@@ -78,17 +85,31 @@ public class SightseeingProfile extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.radio1:
+                        Variables.sightseeingMemory.put(Variables.flag_sightseeing, R.id.radio1);
+                        im_map.setVisibility(View.INVISIBLE);
                         Variables.radioButtonClicked = R.id.radio1;
-                        createNewFragment();
-                        break;
+                        image_sightseeing.setImageResource(sightseeing.getImageNumber());
+                        tv.setText(sightseeing.getDescription());                        break;
                     case R.id.radio2:
+                        Variables.sightseeingMemory.put(Variables.flag_sightseeing, R.id.radio2);
+                        im_map.setVisibility(View.VISIBLE);
                         Variables.radioButtonClicked = R.id.radio2;
-                        createNewFragment();
-                        break;
+                        tv.setText("");
+                        image_sightseeing.setImageResource(sightseeing.getImageNumber());
+                        tv.setText(sightseeing.getAdress());
+                        im_map.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                fragmentTransaction.replace(R.id.fragment_container, new MapFragment()).addToBackStack("tag");
+                                fragmentTransaction.commit();
+                            }
+                        });                        break;
                     case R.id.radio3:
-                        Variables.radioButtonClicked = R.id.radio3;
-                        createNewFragment();
-                }
+                        Variables.sightseeingMemory.put(Variables.flag_sightseeing, R.id.radio3);
+                        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_container, new ReviewFragment()).addToBackStack("tag");
+                        fragmentTransaction.commit();                }
             }
         });
 
@@ -229,13 +250,5 @@ public class SightseeingProfile extends Fragment {
 
         builder.show();
     }
-
-    private void createNewFragment(){
-        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile()).addToBackStack("tag");
-        fragmentTransaction.commit();
-    }
-
-
 
 }

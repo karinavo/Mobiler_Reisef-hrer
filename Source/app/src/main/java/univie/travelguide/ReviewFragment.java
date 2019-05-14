@@ -48,6 +48,14 @@ public class ReviewFragment extends Fragment {
 
 
         RadioGroup radioGroup = view .findViewById(R.id.radio_group);
+        if(Variables.sightseeingMemory.containsKey(Variables.flag_sightseeing)){
+            radioGroup.check(Variables.sightseeingMemory.get(Variables.flag_sightseeing));
+            Variables.radioButtonClicked = Variables.sightseeingMemory.get(Variables.flag_sightseeing);
+        } else {
+            Variables.sightseeingMemory.put(Variables.flag_sightseeing, R.id.radio1);
+            Variables.radioButtonClicked = Variables.sightseeingMemory.get(Variables.flag_sightseeing);
+
+        }
         radioGroup.check(Variables.radioButtonClicked);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -55,12 +63,14 @@ public class ReviewFragment extends Fragment {
                 switch (checkedId) {
                     case R.id.radio1:
                         Variables.radioButtonClicked = R.id.radio1;
+                        Variables.sightseeingMemory.put(Variables.flag_sightseeing, R.id.radio1);
                         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile()).addToBackStack("tag");
                         fragmentTransaction.commit();
                         break;
                     case R.id.radio2:
                         Variables.radioButtonClicked = R.id.radio2;
+                        Variables.sightseeingMemory.put(Variables.flag_sightseeing, R.id.radio2);
                         fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile()).addToBackStack("tag");
                         fragmentTransaction.commit();
