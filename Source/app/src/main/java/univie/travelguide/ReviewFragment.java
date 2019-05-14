@@ -37,8 +37,11 @@ public class ReviewFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_review_fragment,null);
 
 
-
-            SimpleAdapter simpleAdapter = new SimpleAdapter(view.getContext(), Variables.sightseeingMap.get(Variables.flag_sightseeing).getUserComments() , R.layout.listview_with_image,
+            Sightseeing sightseeing = Variables.getSightseeing(Variables.flag_sightseeing);
+            SimpleAdapter simpleAdapter = new SimpleAdapter(
+                    view.getContext(),
+                    sightseeing.getUserComments(),
+                    R.layout.listview_with_image,
                     Variables.from, Variables.to);
             ListView search = view.findViewById(R.id.listfeedbackid);
             search.setAdapter(simpleAdapter);

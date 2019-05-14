@@ -42,39 +42,52 @@ public class SightseeingProfile extends Fragment {
         final RadioGroup radioGroup = view .findViewById(R.id.radio_group);
         final ImageView im_map = view.findViewById(R.id.map);
         radioGroup.check(Variables.radioButtonClicked);
+        final Sightseeing sightseeing = Variables.getSightseeing(Variables.flag_sightseeing);
 
-        image_sightseeing.setImageResource(Variables.sightseeingMap.get(Variables.flag_sightseeing).getImageNumber());
-        tv.setText(Variables.sightseeingMap.get(Variables.flag_sightseeing).getDescription());
+
+        if(Variables.radioButtonClicked.equals(R.id.radio1)){
+            im_map.setVisibility(View.INVISIBLE);
+            Variables.radioButtonClicked = R.id.radio1;
+            image_sightseeing.setImageResource(sightseeing.getImageNumber());
+            tv.setText(sightseeing.getDescription());
+        } else if(Variables.radioButtonClicked.equals(R.id.radio2)){
+            im_map.setVisibility(View.VISIBLE);
+            Variables.radioButtonClicked = R.id.radio2;
+            tv.setText("");
+            image_sightseeing.setImageResource(sightseeing.getImageNumber());
+            tv.setText(sightseeing.getAdress());
+            im_map.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment_container, new MapFragment()).addToBackStack("tag");
+                    fragmentTransaction.commit();
+                }
+            });
+        } else {
+            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, new ReviewFragment()).addToBackStack("tag");
+            fragmentTransaction.commit();
+        }
+
+
+
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.radio1:
-                        im_map.setVisibility(View.INVISIBLE);
                         Variables.radioButtonClicked = R.id.radio1;
-                        image_sightseeing.setImageResource(Variables.sightseeingMap.get(Variables.flag_sightseeing).getImageNumber());
-                        tv.setText(Variables.sightseeingMap.get(Variables.flag_sightseeing).getDescription());
+                        createNewFragment();
                         break;
                     case R.id.radio2:
-                        im_map.setVisibility(View.VISIBLE);
                         Variables.radioButtonClicked = R.id.radio2;
-                        tv.setText("");
-                        image_sightseeing.setImageResource(Variables.sightseeingMap.get(Variables.flag_sightseeing).getImageNumber());
-                        tv.setText(Variables.sightseeingMap.get(Variables.flag_sightseeing).getAdress());
-                        im_map.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                                fragmentTransaction.replace(R.id.fragment_container, new MapFragment()).addToBackStack("tag");
-                                fragmentTransaction.commit();
-                            }
-                        });
+                        createNewFragment();
                         break;
                     case R.id.radio3:
                         Variables.radioButtonClicked = R.id.radio3;
-                        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.fragment_container, new ReviewFragment()).addToBackStack("tag");
-                        fragmentTransaction.commit();
+                        createNewFragment();
                 }
             }
         });
@@ -215,6 +228,12 @@ public class SightseeingProfile extends Fragment {
         });
 
         builder.show();
+    }
+
+    private void createNewFragment(){
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile()).addToBackStack("tag");
+        fragmentTransaction.commit();
     }
 
 

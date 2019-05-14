@@ -8,6 +8,7 @@ import java.util.Map;
 public class Sightseeing {
 
     private String description = "";
+    private String title = "";
     private Integer imageNumber = 0;
     private String type = "";
     private List<Map<String, String>> userComments = new ArrayList<>();
@@ -55,7 +56,16 @@ public class Sightseeing {
         this.adress = adress;
     }
 
-    public Sightseeing(String description, Integer imageNumber, String type, List<Map<String, String>> userComment, String adress){
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Sightseeing(String title, String description, Integer imageNumber, String type, List<Map<String, String>> userComment, String adress){
+        this.title = title;
         this.description = description;
         this.imageNumber = imageNumber;
         this.type = type;

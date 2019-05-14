@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -33,39 +34,42 @@ import java.util.List;
 import java.util.Map;
 
 public class HomeFragment extends Fragment   {
-    SearchView searchView;
-    List<ImageView> images_museums = new ArrayList<>();
-    Spinner cat;
-    public static  SimpleAdapter simpleAdapter;
-    boolean filtered = false;
+    SimpleAdapter simpleAdapter;
+   private  List<Map<String,String>> list_of_sightseeings = Variables.list_of_sightseeings;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_home_fragment,null);
-        searchView = view.findViewById(R.id.searchView);
-        cat = view.findViewById(R.id.category);
+        SearchView searchView = view.findViewById(R.id.searchView);
+        final Spinner cat = view.findViewById(R.id.category);
 
 
 
-        simpleAdapter = new SimpleAdapter(view.getContext().getApplicationContext(),
-                Variables.list_of_sightseeings, R.layout.listview_with_image, Variables.from, Variables.to);
-        final ListView listView = (ListView) view.findViewById(R.id.list_view);
+
+        simpleAdapter = new SimpleAdapter(
+                view.getContext(),
+                list_of_sightseeings,
+                R.layout.listview_with_image,
+                Variables.from,
+                Variables.to);
+        final ListView listView = view.findViewById(R.id.list_view);
 
 
         listView.setAdapter(simpleAdapter);
-        ////IF search is clicable
+        ////IF search is clickable
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 final List<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
                 boolean containsKey = false;
-                for(Map.Entry<String, Sightseeing> entry : Variables.sightseeingMap.entrySet()) {
-                    String key = entry.getKey();
+                for(Sightseeing sightseeing: Variables.sightseeingMap) {
+                    String key = sightseeing.getTitle();
                     if(key.toUpperCase().contains(query.toUpperCase())){
                         containsKey = true;
                         break;
                     }
-
                 }
                     if(containsKey) {
                         simpleAdapter.getFilter().filter(query);
@@ -87,37 +91,26 @@ public class HomeFragment extends Fragment   {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(cat.getSelectedItemId()==0) {
-                    simpleAdapter = new SimpleAdapter(view.getContext().getApplicationContext(),
-                            Variables.list_of_sightseeings, R.layout.listview_with_image, Variables.from, Variables.to);
-                    listView.setAdapter(simpleAdapter);
-                }else if(cat.getSelectedItemId()==1) {
-                    filtered = true;
-                    simpleAdapter.getFilter().filter("Museum");
-                 //   simpleAdapter.notifyDataSetInvalidated();
-                }
-                else if(cat.getSelectedItemId()==2) {
-                    filtered = true;
-                    simpleAdapter.getFilter().filter("Building");
-                 //   simpleAdapter.notifyDataSetInvalidated();
-
-                }
-                else if(cat.getSelectedItemId()==3) {
-                    filtered = true;
-                    simpleAdapter.getFilter().filter("Park");
-                    simpleAdapter.notifyDataSetInvalidated();
-                }
-                else if(cat.getSelectedItemId()==4) {
-                    filtered = true;
-                    simpleAdapter.getFilter().filter("Church");
-                    simpleAdapter.notifyDataSetInvalidated();
-
-                }
-                else if(cat.getSelectedItemId()==5) {
-                    filtered = true;
-                    simpleAdapter.getFilter().filter("Palace");
-                    //simpleAdapter.notifyDataSetInvalidated();
-
+                //list_of_sightseeings.clear();
+                switch(position){
+                    case 0:
+                       setAdapter(listView, simpleAdapter);
+                        break;
+                    case 1:
+                        setAdapter(listView, getAdapter(view, "Museum"));
+                        break;
+                    case 2:
+                        setAdapter(listView, getAdapter(view, "Building"));
+                        break;
+                    case 3:
+                        setAdapter(listView, getAdapter(view, "Park"));
+                        break;
+                    case 4:
+                        setAdapter(listView, getAdapter(view, "Church"));
+                        break;
+                    case 5:
+                        setAdapter(listView, getAdapter(view, "Palace"));
+                        break;
                 }
 
             }
@@ -138,9 +131,9 @@ public class HomeFragment extends Fragment   {
 
 
                 String str = parent.getItemAtPosition(position).toString();
-                for(String sightseeing: Variables.getSightseeingList()){
-                    if(str.contains(sightseeing)){
-                        Variables.flag_sightseeing = sightseeing;
+                for(Sightseeing sightseeing: Variables.sightseeingMap){
+                    if(str.contains(sightseeing.getTitle())){
+                        Variables.flag_sightseeing = sightseeing.getTitle();
                     }
                 }
                 fragmentTransaction.commit();
@@ -149,4 +142,25 @@ public class HomeFragment extends Fragment   {
 
         return view;
     }
+
+
+    SimpleAdapter getAdapter(View view,String type){
+        List<Map<String,String>> sights = new ArrayList<>();
+        for(Sightseeing sightseeing: Variables.sightseeingMap){
+            if(sightseeing.getType().equals(type)){
+                sights.add(Variables.getMapForAdapter(sightseeing));
+            }
+        }
+          return new SimpleAdapter(
+                view.getContext(),
+                sights,
+                R.layout.listview_with_image,
+                Variables.from,
+                Variables.to);
+    }
+
+    public void setAdapter(ListView lv, SimpleAdapter sa){
+        lv.setAdapter(sa);
+    }
+
 }

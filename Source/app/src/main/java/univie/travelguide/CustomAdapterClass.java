@@ -24,6 +24,7 @@ public class CustomAdapterClass extends ArrayAdapter {
 
         super(context,R.layout.row_list_view_tour , nameArrayParam);
 
+
         this.context = context;
         this.imageIDarray = imageIDArrayParam;
         this.nameArray = nameArrayParam;
@@ -31,7 +32,6 @@ public class CustomAdapterClass extends ArrayAdapter {
     }
 
     public View getView(int position, View view, ViewGroup parent) {
-        System.out.println("aaaaa");
 
 
         LayoutInflater inflater=context.getLayoutInflater();

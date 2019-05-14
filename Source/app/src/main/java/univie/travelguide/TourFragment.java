@@ -46,32 +46,21 @@ public class TourFragment extends Fragment {
 
         final ArrayList<String> tour_titles = new ArrayList<>();
 
-        tour_titles.add("Theaters Tour");
-        tour_titles.add("Museums Tour");
-        tour_titles.add("Parks Tour");
 
-        ArrayList<String> tour_description = new ArrayList<>();
-
-        tour_description.add("Experience Vienna's Theaters");
-        tour_description.add("Experience Vienna's Museums");
-        tour_description.add("Experience Vienna's Parks");
-
-        ArrayList<Integer> tour_photos = new ArrayList<>();
-
-        tour_photos.add(R.drawable.opera_tour_photo);
-        tour_photos.add(R.drawable.museums_tour_photo);
-        tour_photos.add(R.drawable.parks_tour_photo);
-
-        for (int i = 0; i < tour_titles.size(); i++) {
-            HashMap<String, String> hm = new HashMap<String, String>();
-            hm.put("listview_title", tour_titles.get(i));
-            hm.put("listview_description", tour_description.get(i));
-            hm.put("listview_image", Integer.toString(tour_photos.get(i)));
+        for(String tour: Variables.toursMap.keySet()){
+            Map<String, String> hm = new HashMap<String, String>();
+            hm.put("listview_title", tour);
+            hm.put("listview_description", Variables.toursMap.get(tour).getDescription());
+            hm.put("listview_image", Integer.toString(Variables.toursMap.get(tour).getImageNumber()));
             tours_listview.add(hm);
         }
 
 
-        SimpleAdapter adapter = new SimpleAdapter(view.getContext().getApplicationContext(),tours_listview, R.layout.listview_with_image, Variables.from, Variables.to);
+        SimpleAdapter adapter = new SimpleAdapter(view.getContext(),
+                tours_listview,
+                R.layout.listview_with_image,
+                Variables.from,
+                Variables.to);
 
         listView.setAdapter(adapter);
 
@@ -91,7 +80,13 @@ public class TourFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, new TourProfile());
                 fragmentTransaction.addToBackStack("tag");
-                Variables.position_of_Tour = position;
+                String str = parent.getItemAtPosition(position).toString();
+                for(String tour: Variables.toursMap.keySet()){
+                    if(str.contains(tour)){
+                        Variables.tourClicked = tour;
+                        break;
+                    }
+                }
                 fragmentTransaction.commit();
             }
         });

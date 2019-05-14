@@ -29,7 +29,9 @@ public class SightseeingGeneratedList extends Fragment {
 
         View view = inflater.inflate(R.layout.activity_sightseeing_generated_list, null);
 
-        ArrayList<String> titles = new ArrayList<>(Variables.sightseeingMap.keySet());
+
+        /*
+        List<String> titles = new ArrayList<>(Variables.sightseeingMap);
 
         ArrayList<String> titles_new = new ArrayList<>();
         ArrayList<Integer> photos_new = new ArrayList<>();
@@ -43,18 +45,20 @@ public class SightseeingGeneratedList extends Fragment {
             if(!randomList.contains(randomIndex)) randomList.add(randomIndex);
         }
 
+        List<String > tempList = new ArrayList<>();
         for(int i = 0; i < 3; i++){
+            System.out.println("TOUR = " + Variables.t);
             String randomElementTitle = titles.get(randomList.get(i));
             titles_new.add(randomElementTitle);
+            tempList.add(randomElementTitle);
 
-//            String randomElementDescription = descriptions.get(randomIndex);
-//            descriptions_new.add(randomElementDescription);
             String randomElementDescription = Variables.sightseeingMap.get(titles.get(randomList.get(i))).getDescription();
             descriptions_new.add(randomElementDescription);
 
             Integer randomElementPhoto = Variables.sightseeingMap.get(titles.get(randomList.get(i))).getImageNumber();
             photos_new.add(randomElementPhoto);
         }
+        Variables.createdTourList.add(tempList);
 
 
         descriptions_new.add("Day 1");
@@ -69,9 +73,6 @@ public class SightseeingGeneratedList extends Fragment {
 
         listViewSights.setAdapter(adapter);
 
-        System.out.println("List 1 size: " + titles_new.size());
-        System.out.println("List 2 size: " + descriptions_new.size());
-        System.out.println("List 3 size: " + photos_new.size());
 
 
         listViewSights.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -87,7 +88,7 @@ public class SightseeingGeneratedList extends Fragment {
             }
         });
 
-
+*/
         return view;
     }
 
@@ -104,6 +105,9 @@ public class SightseeingGeneratedList extends Fragment {
         if(id == R.id.action_favorite_unchecked){
             item.setChecked(!item.isChecked());
             if(item.isChecked()) {
+                Variables.toursMap.put("MyTour " + Variables.tourCounter++, new Tour("A Custom Tour", R.drawable.custom_tour));
+
+
                 item.setIcon(R.drawable.ic_bookmark_white_24dp);
                 Variables.favouriteSightseeings.add(Variables.flag_sightseeing);
             }

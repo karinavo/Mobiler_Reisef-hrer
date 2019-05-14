@@ -30,11 +30,11 @@ public class FavouritesFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_favourites_fragment,  null);
 
         Set<Map<String,String>> list_of_sightseeings = new HashSet<>();
-        Set<Map<String,String>> list_of_tours = new HashSet<>();
 
         for(String i: Variables.favouriteSightseeings){
+            Sightseeing sightseeing = Variables.getSightseeing(i);
             Map<String, String> temp = new TreeMap<>();
-            temp.put("listview_image", Integer.toString(Variables.sightseeingMap.get(i).getImageNumber()));
+            temp.put("listview_image", Integer.toString(sightseeing.getImageNumber()));
             temp.put("listview_title", i);
             list_of_sightseeings.add(temp);
         }
@@ -70,17 +70,6 @@ public class FavouritesFragment extends Fragment {
         return view;
     }
 
-    /*
-    // get current list of keys
-    private ArrayAdapter<String> getAdapter() {
-        List<String> keys;
-        return new ArrayAdapter<>(
-                getActivity(),
-                android.R.layout.simple_list_item_1,
-                keys
-        );
-    }
-*/
 
 }
 
