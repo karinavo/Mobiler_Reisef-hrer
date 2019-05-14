@@ -79,7 +79,6 @@ public class SightseeingProfile extends Fragment {
 
 
 
-
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -101,14 +100,15 @@ public class SightseeingProfile extends Fragment {
                             @Override
                             public void onClick(View v) {
                                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                                fragmentTransaction.replace(R.id.fragment_container, new MapFragment()).addToBackStack("tag");
+                                fragmentTransaction.replace(R.id.fragment_container, new MapFragment()).addToBackStack(null);
                                 fragmentTransaction.commit();
                             }
                         });                        break;
                     case R.id.radio3:
                         Variables.sightseeingMemory.put(Variables.flag_sightseeing, R.id.radio3);
                         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.fragment_container, new ReviewFragment()).addToBackStack("tag");
+                        fragmentTransaction.replace(R.id.fragment_container, new ReviewFragment()).addToBackStack(null);
+
                         fragmentTransaction.commit();                }
             }
         });

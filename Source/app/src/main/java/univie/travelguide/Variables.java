@@ -93,24 +93,6 @@ public class Variables {
     }};
 
 
-
-    static public List<String>  getDesription() {
-        List<String> desc = new ArrayList<>();
-        for(Sightseeing sightseeing: sightseeingMap){
-            desc.add(sightseeing.getType());
-        }
-        return desc;
-    }
-
-    static public List<Integer> getFotos() {
-        List<Integer> fotos = new ArrayList<>();
-        for(Sightseeing sightseeing: sightseeingMap){
-            fotos.add(sightseeing.getImageNumber());
-        }
-        return fotos;
-    }
-
-
     public static Map<String,String> getMapForAdapter (Sightseeing sightseeing){
         Map<String, String> map_of_sightseeings = new HashMap<>();
         map_of_sightseeings.put("listview_title", sightseeing.getTitle());
@@ -133,6 +115,7 @@ public class Variables {
             hm.put("listview_title", commentUserName.get(i));
             hm.put("listview_discription", commentUserFeedback.get(0));
             hm.put("listview_image", Integer.toString(R.drawable.ic_user));
+            hm.put("listview_smile", Integer.toString(R.drawable.ic_smile));
             commentsList.add(hm);
         }
         for(Sightseeing s: sightseeingMap){
@@ -141,18 +124,6 @@ public class Variables {
         }
     }
 
-    public static void addNewComment(String message) {
-        Map<String, String> hm = new HashMap<>();
-        hm.put("listview_title", currentUser);
-        hm.put("listview_discription", message);
-        hm.put("listview_image", Integer.toString(R.drawable.ic_user));
-
-        for(Sightseeing sightseeing: sightseeingMap){
-            if(sightseeing.getTitle().equals(flag_sightseeing)){
-                sightseeing.addComment(hm);
-            }
-        }
-    }
 
     public static Sightseeing getSightseeing(String sight) {
         for(Sightseeing sightseeing: sightseeingMap){

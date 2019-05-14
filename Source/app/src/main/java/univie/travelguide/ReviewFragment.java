@@ -26,7 +26,8 @@ import java.util.List;
 
 public class ReviewFragment extends Fragment {
 
-
+    public static String[] from = {"listview_image", "listview_title", "listview_discription", "listview_smile"};
+    public static  int[] to = {R.id.listview_image, R.id.listview__title, R.id.listview_description, R.id.listview_smile};
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,8 +38,8 @@ public class ReviewFragment extends Fragment {
             SimpleAdapter simpleAdapter = new SimpleAdapter(
                     view.getContext(),
                     sightseeing.getUserComments(),
-                    R.layout.listview_with_image,
-                    Variables.from, Variables.to);
+                    R.layout.listview_favourites,
+                    from, to);
             ListView search = view.findViewById(R.id.listfeedbackid);
             search.setAdapter(simpleAdapter);
 

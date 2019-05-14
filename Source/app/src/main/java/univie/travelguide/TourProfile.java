@@ -73,8 +73,19 @@ public class TourProfile extends Fragment {
 
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile());
-                fragmentTransaction.addToBackStack("tag");
+                fragmentTransaction.addToBackStack(null);
+                Variables.flag_sightseeing = "";
+
+
+                String str = parent.getItemAtPosition(position).toString();
+                for(Sightseeing sightseeing: Variables.sightseeingMap){
+                    if(str.contains(sightseeing.getTitle())){
+                        Variables.flag_sightseeing = sightseeing.getTitle();
+                    }
+                }
                 fragmentTransaction.commit();
+
+
             }
         });
 

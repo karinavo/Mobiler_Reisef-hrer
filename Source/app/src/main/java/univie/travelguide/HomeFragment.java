@@ -126,7 +126,7 @@ public class HomeFragment extends Fragment   {
 
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, new SightseeingProfile());
-                fragmentTransaction.addToBackStack("tag");
+                fragmentTransaction.addToBackStack(null);
                 Variables.flag_sightseeing = "";
 
 
