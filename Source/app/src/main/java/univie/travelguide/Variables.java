@@ -79,8 +79,10 @@ public class Variables {
     }
 
     static List<Map<String, String>> commentsList = new ArrayList<Map<String, String>>();
+    static List<Map<String, String>> commentsForAccount = new ArrayList<Map<String, String>>();
 
-    static List<String> commentUserName = new ArrayList<String>(){
+
+    static Set<String> commentUserName = new HashSet<String>(){
         {
             add("Karina Volobuieva");
             add("Ruslan Jelbuldin");
@@ -90,6 +92,14 @@ public class Variables {
 
     static List<String> commentUserFeedback = new ArrayList<String>(){{
         add("It is a nice place");
+        add("The worst place in the world!!");
+        add("That was OK");
+    }};
+
+    static List<Integer> smiles = new ArrayList<Integer>(){{
+        add(R.drawable.ic_smile);
+        add(R.drawable.ic_smile_angry);
+        add(R.drawable.ic_smile_ok);
     }};
 
 
@@ -110,13 +120,32 @@ public class Variables {
 
 
     public static void fillCommentsList() {
+        List<String> listOfSet = new ArrayList<>(commentUserName);
         for (int i = 0; i < commentUserName.size(); i++) {
             Map<String, String> hm = new HashMap<>();
-            hm.put("listview_title", commentUserName.get(i));
-            hm.put("listview_discription", commentUserFeedback.get(0));
+            hm.put("listview_title", listOfSet.get(i));
+            hm.put("listview_discription", commentUserFeedback.get(i));
             hm.put("listview_image", Integer.toString(R.drawable.ic_user));
-            hm.put("listview_smile", Integer.toString(R.drawable.ic_smile));
+            hm.put("listview_smile", Integer.toString(smiles.get(i)));
             commentsList.add(hm);
+        }
+        for(Sightseeing s: sightseeingMap){
+            List<Map<String,String>> l = new ArrayList<>(commentsList);
+            s.setUserComments(l);
+        }
+    }
+
+    public static void fillCommentsForAccount() {
+        int i = 0;
+        for (Sightseeing sightseeing: sightseeingMap) {
+            if(i == 3) break;
+            Map<String, String> hm = new HashMap<>();
+            hm.put("listview_title", sightseeing.getTitle());
+            hm.put("listview_discription", commentUserFeedback.get(i));
+            hm.put("listview_image", Integer.toString(sightseeing.getImageNumber()));
+            hm.put("listview_smile", Integer.toString(smiles.get(i)));
+            commentsForAccount.add(hm);
+            i++;
         }
         for(Sightseeing s: sightseeingMap){
             List<Map<String,String>> l = new ArrayList<>(commentsList);

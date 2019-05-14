@@ -10,6 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -19,11 +21,24 @@ public class MyAccountFragment extends Fragment {
     private TextView tvNameSurname;
     private TextView tvBirtdate;
 
+    public static String[] from = {"listview_image", "listview_title", "listview_discription", "listview_smile"};
+    public static  int[] to = {R.id.listview_image, R.id.listview__title, R.id.listview_description, R.id.listview_smile};
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_my_account_fragment, null);
         setHasOptionsMenu(true);
+        Variables.fillCommentsForAccount();
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(
+                view.getContext(),
+                Variables.commentsForAccount,
+                R.layout.listview_favourites,
+                from, to);
+        ListView search = view.findViewById(R.id.listfeedbackid);
+        search.setAdapter(simpleAdapter);
+
 
         tvEmail = view.findViewById(R.id.my_acc_email);
         tvNameSurname = view.findViewById(R.id.my_acc_name_surname);

@@ -30,11 +30,13 @@ import java.util.Map;
 
 public class SightseeingProfile extends Fragment {
 
+    Integer smile_number = 0;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.activity_sightseeing_profile,null);
-        SmileRating smileRating = view.findViewById(R.id.smile_rating);
+        final SmileRating smileRating = view.findViewById(R.id.smile_rating);
 
 
         final TextView tv = view.findViewById(R.id.text_view);
@@ -140,6 +142,7 @@ public class SightseeingProfile extends Fragment {
                 // Except if it first time, then the value will be false.
                 switch (smiley) {
                     case SmileRating.BAD:
+                        smile_number = R.drawable.ic_dmile_bad;
                         if(isLoggedIn()){
                             showFeedbackDialog();
                         } else {
@@ -147,6 +150,7 @@ public class SightseeingProfile extends Fragment {
                         }
                         break;
                     case SmileRating.GOOD:
+                        smile_number = R.drawable.ic_smile;
                         if(isLoggedIn()){
                             showFeedbackDialog();
 
@@ -155,6 +159,7 @@ public class SightseeingProfile extends Fragment {
                         }
                         break;
                     case SmileRating.GREAT:
+                        smile_number = R.drawable.ic_smilie_great;
                         if(isLoggedIn()){
                             showFeedbackDialog();
 
@@ -163,6 +168,7 @@ public class SightseeingProfile extends Fragment {
                         }
                         break;
                     case SmileRating.OKAY:
+                        smile_number = R.drawable.ic_smile_ok;
                         if(isLoggedIn()){
                             showFeedbackDialog();
 
@@ -171,6 +177,7 @@ public class SightseeingProfile extends Fragment {
                         }
                         break;
                     case SmileRating.TERRIBLE:
+                        smile_number = R.drawable.ic_smile_angry;
                         if(isLoggedIn()){
                             showFeedbackDialog();
                         } else {
@@ -216,6 +223,7 @@ public class SightseeingProfile extends Fragment {
                         hm.put("listview_title", Variables.currentUser);
                         hm.put("listview_discription", content);
                         hm.put("listview_image", Integer.toString(R.drawable.ic_user));
+                        hm.put("listview_smile", Integer.toString(smile_number));
                         sightseeing.addComment(hm);
                         break;
                     }
