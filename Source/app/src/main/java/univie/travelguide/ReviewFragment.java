@@ -27,10 +27,6 @@ import java.util.List;
 public class ReviewFragment extends Fragment {
 
 
-    static String username;
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

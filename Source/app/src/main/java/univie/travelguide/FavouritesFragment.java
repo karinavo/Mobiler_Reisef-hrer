@@ -33,6 +33,9 @@ public class FavouritesFragment extends Fragment {
 
         for(String i: Variables.favouriteSightseeings){
             Sightseeing sightseeing = Variables.getSightseeing(i);
+            if(sightseeing == null){
+                System.out.println("I AM HERE = ");
+            }
             Map<String, String> temp = new TreeMap<>();
             temp.put("listview_image", Integer.toString(sightseeing.getImageNumber()));
             temp.put("listview_title", i);

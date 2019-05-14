@@ -56,20 +56,27 @@ public class Variables {
     static public String currentProfile;
     static public Integer tourCounter = 0;
     static public String tourClicked = "";
-    static public List<List<String>> createdTourList = new ArrayList<>();
     static public Map<String, Integer> sightseeingMemory = new HashMap<>();
 
 
-    public static Map<String, Tour> toursMap = new TreeMap<String, Tour>(){
+    public static List<Tour> toursMap = new ArrayList<Tour>(){
         {
-            put("Theaters Tour", new Tour("Experience Vienna's Theaters", R.drawable.opera_tour_photo));
-            put("Museums Tour", new Tour("Experience Vienna's Museums", R.drawable.museums_tour_photo));
-            put("Parks Tour", new Tour("Experience Vienna's Parks", R.drawable.parks_tour_photo));
+            add(new Tour("Theaters Tour","Experience Vienna's Theaters", R.drawable.opera_tour_photo, fillTours("Theater")));
+            add(new Tour("Museums Tour", "Experience Vienna's Museums", R.drawable.museums_tour_photo, fillTours("Museum")));
+            add(new Tour("Parks Tour", "Experience Vienna's Parks", R.drawable.parks_tour_photo, fillTours("Park")));
         }
     };
 
 
-
+    public static List<Sightseeing> fillTours(String str){
+        List<Sightseeing> tempList = new ArrayList<>();
+        for(Sightseeing sightseeing: sightseeingMap){
+            if(sightseeing.getType().equals(str)){
+                tempList.add(sightseeing);
+            }
+        }
+        return tempList;
+    }
 
     static List<Map<String, String>> commentsList = new ArrayList<Map<String, String>>();
 

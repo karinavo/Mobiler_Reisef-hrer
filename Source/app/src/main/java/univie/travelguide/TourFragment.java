@@ -44,14 +44,11 @@ public class TourFragment extends Fragment {
         createPersonalTour = view.findViewById(R.id.button_create_personal_tour);
 
 
-        final ArrayList<String> tour_titles = new ArrayList<>();
-
-
-        for(String tour: Variables.toursMap.keySet()){
+        for(Tour tour: Variables.toursMap){
             Map<String, String> hm = new HashMap<String, String>();
-            hm.put("listview_title", tour);
-            hm.put("listview_description", Variables.toursMap.get(tour).getDescription());
-            hm.put("listview_image", Integer.toString(Variables.toursMap.get(tour).getImageNumber()));
+            hm.put("listview_title", tour.getTitle());
+            hm.put("listview_discription", tour.getDescription());
+            hm.put("listview_image", Integer.toString(tour.getImageNumber()));
             tours_listview.add(hm);
         }
 
@@ -81,9 +78,9 @@ public class TourFragment extends Fragment {
                 fragmentTransaction.replace(R.id.fragment_container, new TourProfile());
                 fragmentTransaction.addToBackStack("tag");
                 String str = parent.getItemAtPosition(position).toString();
-                for(String tour: Variables.toursMap.keySet()){
-                    if(str.contains(tour)){
-                        Variables.tourClicked = tour;
+                for(Tour tour: Variables.toursMap){
+                    if(str.contains(tour.getTitle())){
+                        Variables.tourClicked = tour.getTitle();
                         break;
                     }
                 }

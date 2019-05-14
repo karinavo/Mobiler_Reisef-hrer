@@ -39,27 +39,23 @@ public class TourProfile extends Fragment {
         List<Map<String,String>> list_of_sightseeing = new ArrayList<>();
         int dayCount = 1;
         int gesamtCount = 0;
-        for(Sightseeing sightseeing: Variables.sightseeingMap){
-            HashMap<String, String> hm = new HashMap<String, String>();
-            if(Variables.tourClicked.contains(sightseeing.getType())){
+
+        for(Tour tour: Variables.toursMap){
+            if(tour.getTitle().equals(Variables.tourClicked)){
+                for(Sightseeing sightseeing: tour.getListOfSightseeings()){
+                    HashMap<String, String> hm = new HashMap<String, String>();
                 hm.put("listview_title", sightseeing.getTitle());
                 hm.put("listview_discription", "Day " + (new Random().nextInt(2) == 1 ? dayCount++ : dayCount));
                 hm.put("listview_image", Integer.toString(sightseeing.getImageNumber()));
-                gesamtCount++;
-                list_of_sightseeing.add(hm);
-            }
-            if(Variables.tourClicked.contains("MyTour")){
-
-                if(Variables.createdTourList.contains(sightseeing)){
-                    hm.put("listview_title", sightseeing.getTitle());
-                    hm.put("listview_discription", "Day " + (new Random().nextInt(2) == 1 ? dayCount++ : dayCount));
-                    hm.put("listview_image", Integer.toString(sightseeing.getImageNumber()));
                     list_of_sightseeing.add(hm);
-                }
+
+                    gesamtCount++;
+            }
             }
         }
 
-        tv.setText("Duration: " + gesamtCount * 2 + " hours.");
+        String text = "Duration: " + gesamtCount * 2 + " hours.";
+        tv.setText(text);
 
 
 
