@@ -135,9 +135,9 @@ public class Variables {
             hm.put("listview_image", Integer.toString(R.drawable.ic_user));
             commentsList.add(hm);
         }
-
         for(Sightseeing s: sightseeingMap){
-            s.setUserComments(commentsList);
+            List<Map<String,String>> l = new ArrayList<>(commentsList);
+            s.setUserComments(l);
         }
     }
 

@@ -210,7 +210,16 @@ public class SightseeingProfile extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String content = feedbackContent.getText().toString();
-                Variables.addNewComment(content);
+                for(Sightseeing sightseeing: Variables.sightseeingMap){
+                    if(sightseeing.getTitle().equals(Variables.flag_sightseeing)){
+                        Map<String,String>hm=new HashMap<>();
+                        hm.put("listview_title", Variables.currentUser);
+                        hm.put("listview_discription", content);
+                        hm.put("listview_image", Integer.toString(R.drawable.ic_user));
+                        sightseeing.addComment(hm);
+                        break;
+                    }
+                }
             }
         });
         builder.show();
