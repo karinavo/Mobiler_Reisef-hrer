@@ -129,7 +129,6 @@ public class HomeFragment extends Fragment   {
                 fragmentTransaction.addToBackStack(null);
                 Variables.flag_sightseeing = "";
 
-
                 String str = parent.getItemAtPosition(position).toString();
                 for(Sightseeing sightseeing: Variables.sightseeingMap){
                     if(str.contains(sightseeing.getTitle())){

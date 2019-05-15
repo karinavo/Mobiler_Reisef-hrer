@@ -46,6 +46,15 @@ public class Variables {
         }};
 
 
+    public static void setAdminAccount(){
+        ArrayList<String> userData = new ArrayList<>();
+        userData.add("a");
+        userData.add("Max");
+        userData.add("Musterman");
+        userData.add("10.11.1994");
+        database.put("a", userData);
+    }
+
     static public Map<String, ArrayList<String>> database = new HashMap<>();
     static public String flag_sightseeing = "";
     static public List<Map<String,String>> list_of_sightseeings = new ArrayList<>();

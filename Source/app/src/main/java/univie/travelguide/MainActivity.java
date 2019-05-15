@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_main);
         Variables.fillSightseeingMap();
         Variables.fillCommentsList();
+        Variables.setAdminAccount();
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
         navigation.getMenu().getItem(2).setIcon(R.drawable.icons8_point_of);

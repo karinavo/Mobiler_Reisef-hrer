@@ -225,6 +225,7 @@ public class SightseeingProfile extends Fragment {
                         hm.put("listview_image", Integer.toString(R.drawable.ic_user));
                         hm.put("listview_smile", Integer.toString(smile_number));
                         sightseeing.addComment(hm);
+                        Toast.makeText(getContext(), "Your comment has been successfully added.", Toast.LENGTH_SHORT).show();
                         break;
                     }
                 }
@@ -249,6 +250,16 @@ public class SightseeingProfile extends Fragment {
                 dialog.dismiss();
             }
         });
+        builder.setNeutralButton("SignUp", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new LoginFragment()).addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+
 
         builder.setPositiveButton("Login", new DialogInterface.OnClickListener() {
             @Override
