@@ -17,7 +17,10 @@ Externe Libraries und Frameworks:
 [com.github.sujithkanna:smileyrating:1.6.8]
 
 Dauer der Entwicklung:
-[3 Tagen]
+[2 Tage]
 
 Weitere Anmerkungen:
-[...]
+[
+https://www.flaticon.com - Icons
+https://www.viralandroid.com/2016/02/android-listview-with-image-and-text.html - ListView with Image
+]
