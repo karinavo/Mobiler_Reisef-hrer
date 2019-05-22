@@ -1,5 +1,6 @@
 package univie.travelguide;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,14 +61,14 @@ public class SightseeingGeneratedList extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Inflate the menu items for use in the action bar
-        inflater.inflate(R.menu.mymenu, menu);
+        inflater.inflate(R.menu.mymenu1, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.action_favorite_unchecked){
+        if(id == R.id.action_save_unchecked){
             item.setChecked(!item.isChecked());
             if(item.isChecked()) {
                 Tour tour = new Tour(
@@ -77,11 +79,18 @@ public class SightseeingGeneratedList extends Fragment {
                     tour.addSightseeing(sightseeing);
                 }
                 Variables.toursMap.add( tour);
-                item.setIcon(R.drawable.ic_bookmark_white_24dp);
+                item.setIcon(R.drawable.ic_save_black_24dp);
                 Variables.favouriteSightseeings.add(Variables.flag_sightseeing);
+
+                Toast.makeText(getActivity(), "Tour saved!", Toast.LENGTH_LONG).show();
+
+
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new TourFragment()).addToBackStack("tag");
+                fragmentTransaction.commit();
             }
             else {
-                item.setIcon(R.drawable.ic_bookmark_border_white_24dp);
+                item.setIcon(R.drawable.ic_save_black_24dp);
                 Variables.favouriteSightseeings.remove(Variables.flag_sightseeing);
             }
 
